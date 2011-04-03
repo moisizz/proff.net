@@ -1,0 +1,7 @@
+all:
+  doAuth:
+    activation: true
+
+  doAuth_email:
+    activation: true
+    from: proff@mail.ru

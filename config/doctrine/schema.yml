@@ -1,0 +1,278 @@
+Room:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name:
+      type:    string(255)
+      notnull: true
+  relations:
+    FurnitureType:
+      class:    FunitureType
+      refClass: RoomFurnitureType
+      local:    room_id
+      foreign:  furniture_type_id
+
+RoomFurnitureType:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  columns:
+    room_id:
+      type:    integer(4)
+      notnull: true
+    furniture_type_id:
+      type:    integer(4)
+      notnull: true
+  relations:
+    Room:
+      class:    Room
+      local:    room_id
+      foreign:  id
+      onDelete: CASCADE
+    FurnitureType:
+      class:    FurnitureType
+      local:    furniture_type_id
+      foreign:  id
+      onDelete: CASCADE
+
+FurnitureType:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name:
+      type:    string(255)
+      notnull: true
+    image:
+      type:    string(511)
+      notnull: false
+      default: 'default_furn_type.png'
+  relations:
+    Room:
+      class:    Room
+      refClass: RoomFurnitureType
+      local:    furniture_type_id
+      foreign:  room_id
+    Portfolio:
+      class:    Portfolio
+      refClass: FurnitureTypePortfolio
+      local:    furniture_type_id
+      foreign:  portfolio_id
+
+Furniture:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    type_id:
+      type:    integer(4)
+      notnull: true
+    name:
+      type:    string(511)
+      notnull: true
+    description:
+      type:    string(2047)
+      notnull: true
+    image:
+      type:    string(511)
+      notnull: false
+      default: 'default_furn.png'
+  relations:
+    Type:
+      class:   FurnitureType
+      local:   type_id
+      foreign: id
+
+MaterialType:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name:
+      type:    string(255)
+      notnull: true
+    description:
+      type:    string(2047)
+      notnull: false
+    image:
+      type:    string(511)
+      notnull: false
+      default: 'default_material_type.png'
+
+Material:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    type_id:
+      type:    integer(4)
+      notnull: true
+    name:
+      type:    string(511)
+      notnull: true
+    description:
+      type:    string(2047)
+      notnull: false
+    image:
+      type:    string(511)
+      notnull: false
+      default: 'default_material.png'
+  relations:
+    Type:
+      class:   MaterialType
+      local:   type_id
+      foreign: id
+
+FurnitureTypePortfolio:
+  columns:
+    furniture_type_id:
+      type: integer(4)
+      notnull: true
+    portfolio_id:
+      type: integer(4)
+      notnull: true
+  relations:
+    FurnitureType:
+      class: FurnitureType
+      local: furniture_type_id
+      foreign: id
+      onDelete: CASCADE
+    Portfolio:
+      class: Portfolio
+      local: portfolio_id
+      foreign: id
+      onDelete: CASCADE
+
+Portfolio:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    room_id:
+      type:    integer(4)
+      notnull: true
+    name:
+      type: string(511)
+      notnull: true
+    description:
+      type: string(2047)
+      notnull: false
+    image:
+      type: string(511)
+      notnull: false
+      default: 'default_portfolio.png'
+    date:
+      type: date
+      notnull: false
+  relations:
+    Room:
+      class:    Room
+      local:    room_id
+      foreign:  id
+    FurnitureType:
+      class:    FurnitureType
+      refClass: FurnitureTypePortfolio
+      local:    portfolio_id
+      foreign:  furniture_type_id
+
+FurniturePreorder:
+  columns:
+    furniture_id:
+      type:     integer(4)
+      notnull:  true
+    preorder_id:
+      type:     integer(4)
+      notnull:  true
+  relations:
+    Furniture:
+      class:    Furniture
+      local:    furniture_id
+      foreign:  id
+      onDelete: CASCADE
+    Preorder:
+      class:    Preorder
+      local:    preorder_id
+      foreign:  id
+      onDelete: CASCADE
+
+MaterialPreorder:
+  columns:
+    material_id:
+      type:     integer(4)
+      notnull:  true
+    preorder_id:
+      type:     integer(4)
+      notnull:  true
+  relations:
+    Material:
+      class:    Material
+      local:    material_id
+      foreign:  id
+      onDelete: CASCADE
+    Preorder:
+      class:    Preorder
+      local:    preorder_id
+      foreign:  id
+      onDelete: CASCADE
+
+PortfolioPreorder:
+  columns:
+    portfolio_id:
+      type:     integer(4)
+      notnull:  true
+    preorder_id:
+      type:     integer(4)
+      notnull:  true
+  relations:
+    Portfolio:
+      class:    Portfolio
+      local:    portfolio_id
+      foreign:  id
+      onDelete: CASCADE
+    Preorder:
+      class:    Preorder
+      local:    preorder_id
+      foreign:  id
+      onDelete: CASCADE
+
+Preorder:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    user_id:
+      type:     integer(4)
+      notnull:  true
+    description:
+      type:     string(2047)
+      notnull:  false
+  relations:
+    User:
+      class:    User
+      local:    user_id
+      foreign:  id
+      onDelete: CASCADE
+    Furniture:
+      class:    Furniture
+      refClass: FurniturePreorder
+      local:    preorder_id
+      foreign:  furniture_id
+    Material:
+      class:    Material
+      refClass: MaterialPreorder
+      local:    preorder_id
+      foreign:  material_id
+    Portfolio:
+      class:    Portfolio
+      refClass: PortfolioPreorder
+      local:    preorder_id
+      foreign:  portfolio_id

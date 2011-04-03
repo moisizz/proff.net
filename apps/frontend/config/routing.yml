@@ -1,0 +1,45 @@
+furniture_types:
+  url:   /furniture/types
+  param: { module: furniture, action: types }
+
+material_types:
+  url:   /material/types
+  param: { module: material , action: types }
+
+portfolio:
+  url:   /portfolio
+  param: { module: portfolio , action: index }
+
+about:
+  url:   /about
+  param: { module: information , action: about }
+
+contacts:
+  url:   /contacts
+  param: { module: information, action: contacts }
+  
+
+#Роутинги пользователя
+signin:
+  url: /login
+  param: { module: user, action: signin }
+
+signout:
+  url: /logout
+  param: { module: user, action: signout }
+
+register:
+  url: /register
+  param: { module: user, action: register }
+
+password:
+  url: /reset_password
+  param: { module: user, action: password, wildcard: true }
+
+activation:
+  url: /activate/:code
+  param: { module: user, action: activate }
+
+homepage:
+  url:   /
+  param: { module: room, action: index }
