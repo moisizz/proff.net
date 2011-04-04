@@ -21,7 +21,8 @@ class FurnitureTable extends Doctrine_Table
     {
       $alias = $q->getRootAlias();
       $q->leftJoin($alias.'.Material m')
-        ->leftJoin($alias.'.Type t');
+        ->leftJoin($alias.'.Type t')
+        ->leftJoin($alias.'.Portfolio p');
       
       $furniture = $q->fetchOne();
       $q->free();

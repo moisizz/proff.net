@@ -30,5 +30,6 @@ class furnitureActions extends sfActions
   {
     $this->furniture = $this->getRoute()->getObject();
     $this->furniture_materials = $this->furniture['Material'];
+    $this->furniture_portfolio_list = $this->furniture['Portfolio'];
   }
 }

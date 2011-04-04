@@ -13,3 +13,6 @@
 
 Материалы, подходящие для этой мебели:
 <?php include_partial('material/list',array('material_list' => $furniture_materials)) ?>
+
+Сделанные работы, в которых применялась эта мебель
+<?php include_partial('portfolio/list', array('portfolio_list' => $furniture_portfolio_list)) ?>
