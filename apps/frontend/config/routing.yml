@@ -22,6 +22,12 @@ portfolio:
   url:   /portfolio
   param: { module: portfolio , action: index }
 
+portfolio_show:
+  url:     /portfolio/:id
+  class:   sfDoctrineRoute
+  options: { model:  Portfolio, type: object }
+  param:   { module: portfolio, action: show }
+
 about:
   url:   /about
   param: { module: information , action: about }
