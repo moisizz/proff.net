@@ -12,14 +12,4 @@
 </div>
 
 Материалы, подходящие для этой мебели:
-<div id="furniture_materials">
-  <?php if(count($furniture_materials) != 0): ?>	
-    <?php foreach($furniture_materials as $material): ?>
-  		<div class="material">
-  			<?php echo link_to($material['name'], 'material_type', array('id' => $material['id'])) ?>
-  		</div>
-  	<?php endforeach; ?>
-  <?php else: ?>
-  	Нет материалов для данной мебели
-  <?php endif; ?>
-</div>
+<?php include_partial('material/list',array('material_list' => $furniture_materials)) ?>
