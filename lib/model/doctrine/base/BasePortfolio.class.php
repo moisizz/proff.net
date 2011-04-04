@@ -12,33 +12,33 @@
  * @property string $image
  * @property date $date
  * @property Room $Room
- * @property Doctrine_Collection $FurnitureType
- * @property Doctrine_Collection $FurnitureTypePortfolio
+ * @property Doctrine_Collection $Furniture
+ * @property Doctrine_Collection $FurniturePortfolio
  * @property Doctrine_Collection $PortfolioPreorder
  * @property Doctrine_Collection $Preorder
  * 
- * @method integer             getId()                     Returns the current record's "id" value
- * @method integer             getRoomId()                 Returns the current record's "room_id" value
- * @method string              getName()                   Returns the current record's "name" value
- * @method string              getDescription()            Returns the current record's "description" value
- * @method string              getImage()                  Returns the current record's "image" value
- * @method date                getDate()                   Returns the current record's "date" value
- * @method Room                getRoom()                   Returns the current record's "Room" value
- * @method Doctrine_Collection getFurnitureType()          Returns the current record's "FurnitureType" collection
- * @method Doctrine_Collection getFurnitureTypePortfolio() Returns the current record's "FurnitureTypePortfolio" collection
- * @method Doctrine_Collection getPortfolioPreorder()      Returns the current record's "PortfolioPreorder" collection
- * @method Doctrine_Collection getPreorder()               Returns the current record's "Preorder" collection
- * @method Portfolio           setId()                     Sets the current record's "id" value
- * @method Portfolio           setRoomId()                 Sets the current record's "room_id" value
- * @method Portfolio           setName()                   Sets the current record's "name" value
- * @method Portfolio           setDescription()            Sets the current record's "description" value
- * @method Portfolio           setImage()                  Sets the current record's "image" value
- * @method Portfolio           setDate()                   Sets the current record's "date" value
- * @method Portfolio           setRoom()                   Sets the current record's "Room" value
- * @method Portfolio           setFurnitureType()          Sets the current record's "FurnitureType" collection
- * @method Portfolio           setFurnitureTypePortfolio() Sets the current record's "FurnitureTypePortfolio" collection
- * @method Portfolio           setPortfolioPreorder()      Sets the current record's "PortfolioPreorder" collection
- * @method Portfolio           setPreorder()               Sets the current record's "Preorder" collection
+ * @method integer             getId()                 Returns the current record's "id" value
+ * @method integer             getRoomId()             Returns the current record's "room_id" value
+ * @method string              getName()               Returns the current record's "name" value
+ * @method string              getDescription()        Returns the current record's "description" value
+ * @method string              getImage()              Returns the current record's "image" value
+ * @method date                getDate()               Returns the current record's "date" value
+ * @method Room                getRoom()               Returns the current record's "Room" value
+ * @method Doctrine_Collection getFurniture()          Returns the current record's "Furniture" collection
+ * @method Doctrine_Collection getFurniturePortfolio() Returns the current record's "FurniturePortfolio" collection
+ * @method Doctrine_Collection getPortfolioPreorder()  Returns the current record's "PortfolioPreorder" collection
+ * @method Doctrine_Collection getPreorder()           Returns the current record's "Preorder" collection
+ * @method Portfolio           setId()                 Sets the current record's "id" value
+ * @method Portfolio           setRoomId()             Sets the current record's "room_id" value
+ * @method Portfolio           setName()               Sets the current record's "name" value
+ * @method Portfolio           setDescription()        Sets the current record's "description" value
+ * @method Portfolio           setImage()              Sets the current record's "image" value
+ * @method Portfolio           setDate()               Sets the current record's "date" value
+ * @method Portfolio           setRoom()               Sets the current record's "Room" value
+ * @method Portfolio           setFurniture()          Sets the current record's "Furniture" collection
+ * @method Portfolio           setFurniturePortfolio() Sets the current record's "FurniturePortfolio" collection
+ * @method Portfolio           setPortfolioPreorder()  Sets the current record's "PortfolioPreorder" collection
+ * @method Portfolio           setPreorder()           Sets the current record's "Preorder" collection
  * 
  * @package    proff.dev
  * @subpackage model
@@ -90,12 +90,12 @@ abstract class BasePortfolio extends sfDoctrineRecord
              'local' => 'room_id',
              'foreign' => 'id'));
 
-        $this->hasMany('FurnitureType', array(
-             'refClass' => 'FurnitureTypePortfolio',
+        $this->hasMany('Furniture', array(
+             'refClass' => 'FurniturePortfolio',
              'local' => 'portfolio_id',
-             'foreign' => 'furniture_type_id'));
+             'foreign' => 'furniture_id'));
 
-        $this->hasMany('FurnitureTypePortfolio', array(
+        $this->hasMany('FurniturePortfolio', array(
              'local' => 'id',
              'foreign' => 'portfolio_id'));
 

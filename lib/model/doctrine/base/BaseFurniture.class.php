@@ -12,6 +12,7 @@
  * @property string $image
  * @property FurnitureType $Type
  * @property Doctrine_Collection $MaterialType
+ * @property Doctrine_Collection $Portfolio
  * @property Doctrine_Collection $FurnitureMaterialType
  * @property Doctrine_Collection $FurniturePreorder
  * @property Doctrine_Collection $Preorder
@@ -23,6 +24,7 @@
  * @method string              getImage()                 Returns the current record's "image" value
  * @method FurnitureType       getType()                  Returns the current record's "Type" value
  * @method Doctrine_Collection getMaterialType()          Returns the current record's "MaterialType" collection
+ * @method Doctrine_Collection getPortfolio()             Returns the current record's "Portfolio" collection
  * @method Doctrine_Collection getFurnitureMaterialType() Returns the current record's "FurnitureMaterialType" collection
  * @method Doctrine_Collection getFurniturePreorder()     Returns the current record's "FurniturePreorder" collection
  * @method Doctrine_Collection getPreorder()              Returns the current record's "Preorder" collection
@@ -33,6 +35,7 @@
  * @method Furniture           setImage()                 Sets the current record's "image" value
  * @method Furniture           setType()                  Sets the current record's "Type" value
  * @method Furniture           setMaterialType()          Sets the current record's "MaterialType" collection
+ * @method Furniture           setPortfolio()             Sets the current record's "Portfolio" collection
  * @method Furniture           setFurnitureMaterialType() Sets the current record's "FurnitureMaterialType" collection
  * @method Furniture           setFurniturePreorder()     Sets the current record's "FurniturePreorder" collection
  * @method Furniture           setPreorder()              Sets the current record's "Preorder" collection
@@ -87,6 +90,11 @@ abstract class BaseFurniture extends sfDoctrineRecord
              'refClass' => 'FurnitureMaterialType',
              'local' => 'furniture_id',
              'foreign' => 'material_type_id'));
+
+        $this->hasMany('Portfolio', array(
+             'refClass' => 'FurniturePortfolio',
+             'local' => 'furniture_id',
+             'foreign' => 'portfolio_id'));
 
         $this->hasMany('FurnitureMaterialType', array(
              'local' => 'id',

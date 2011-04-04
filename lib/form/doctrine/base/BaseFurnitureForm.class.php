@@ -21,6 +21,7 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
       'description'        => new sfWidgetFormTextarea(),
       'image'              => new sfWidgetFormTextarea(),
       'material_type_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'MaterialType')),
+      'portfolio_list'     => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio')),
       'preorder_list'      => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Preorder')),
     ));
 
@@ -31,6 +32,7 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
       'description'        => new sfValidatorString(array('max_length' => 2047)),
       'image'              => new sfValidatorString(array('max_length' => 511, 'required' => false)),
       'material_type_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'MaterialType', 'required' => false)),
+      'portfolio_list'     => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio', 'required' => false)),
       'preorder_list'      => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Preorder', 'required' => false)),
     ));
 
@@ -57,6 +59,11 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
       $this->setDefault('material_type_list', $this->object->MaterialType->getPrimaryKeys());
     }
 
+    if (isset($this->widgetSchema['portfolio_list']))
+    {
+      $this->setDefault('portfolio_list', $this->object->Portfolio->getPrimaryKeys());
+    }
+
     if (isset($this->widgetSchema['preorder_list']))
     {
       $this->setDefault('preorder_list', $this->object->Preorder->getPrimaryKeys());
@@ -67,6 +74,7 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
   protected function doSave($con = null)
   {
     $this->saveMaterialTypeList($con);
+    $this->savePortfolioList($con);
     $this->savePreorderList($con);
 
     parent::doSave($con);
@@ -107,6 +115,44 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
     if (count($link))
     {
       $this->object->link('MaterialType', array_values($link));
+    }
+  }
+
+  public function savePortfolioList($con = null)
+  {
+    if (!$this->isValid())
+    {
+      throw $this->getErrorSchema();
+    }
+
+    if (!isset($this->widgetSchema['portfolio_list']))
+    {
+      // somebody has unset this widget
+      return;
+    }
+
+    if (null === $con)
+    {
+      $con = $this->getConnection();
+    }
+
+    $existing = $this->object->Portfolio->getPrimaryKeys();
+    $values = $this->getValue('portfolio_list');
+    if (!is_array($values))
+    {
+      $values = array();
+    }
+
+    $unlink = array_diff($existing, $values);
+    if (count($unlink))
+    {
+      $this->object->unlink('Portfolio', array_values($unlink));
+    }
+
+    $link = array_diff($values, $existing);
+    if (count($link))
+    {
+      $this->object->link('Portfolio', array_values($link));
     }
   }
 

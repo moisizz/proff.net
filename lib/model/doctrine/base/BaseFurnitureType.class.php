@@ -9,27 +9,24 @@
  * @property string $name
  * @property string $image
  * @property Doctrine_Collection $Room
- * @property Doctrine_Collection $Portfolio
  * @property Doctrine_Collection $RoomFurnitureType
  * @property Doctrine_Collection $Furniture
- * @property Doctrine_Collection $FurnitureTypePortfolio
+ * @property Doctrine_Collection $FurniturePortfolio
  * 
- * @method integer             getId()                     Returns the current record's "id" value
- * @method string              getName()                   Returns the current record's "name" value
- * @method string              getImage()                  Returns the current record's "image" value
- * @method Doctrine_Collection getRoom()                   Returns the current record's "Room" collection
- * @method Doctrine_Collection getPortfolio()              Returns the current record's "Portfolio" collection
- * @method Doctrine_Collection getRoomFurnitureType()      Returns the current record's "RoomFurnitureType" collection
- * @method Doctrine_Collection getFurniture()              Returns the current record's "Furniture" collection
- * @method Doctrine_Collection getFurnitureTypePortfolio() Returns the current record's "FurnitureTypePortfolio" collection
- * @method FurnitureType       setId()                     Sets the current record's "id" value
- * @method FurnitureType       setName()                   Sets the current record's "name" value
- * @method FurnitureType       setImage()                  Sets the current record's "image" value
- * @method FurnitureType       setRoom()                   Sets the current record's "Room" collection
- * @method FurnitureType       setPortfolio()              Sets the current record's "Portfolio" collection
- * @method FurnitureType       setRoomFurnitureType()      Sets the current record's "RoomFurnitureType" collection
- * @method FurnitureType       setFurniture()              Sets the current record's "Furniture" collection
- * @method FurnitureType       setFurnitureTypePortfolio() Sets the current record's "FurnitureTypePortfolio" collection
+ * @method integer             getId()                 Returns the current record's "id" value
+ * @method string              getName()               Returns the current record's "name" value
+ * @method string              getImage()              Returns the current record's "image" value
+ * @method Doctrine_Collection getRoom()               Returns the current record's "Room" collection
+ * @method Doctrine_Collection getRoomFurnitureType()  Returns the current record's "RoomFurnitureType" collection
+ * @method Doctrine_Collection getFurniture()          Returns the current record's "Furniture" collection
+ * @method Doctrine_Collection getFurniturePortfolio() Returns the current record's "FurniturePortfolio" collection
+ * @method FurnitureType       setId()                 Sets the current record's "id" value
+ * @method FurnitureType       setName()               Sets the current record's "name" value
+ * @method FurnitureType       setImage()              Sets the current record's "image" value
+ * @method FurnitureType       setRoom()               Sets the current record's "Room" collection
+ * @method FurnitureType       setRoomFurnitureType()  Sets the current record's "RoomFurnitureType" collection
+ * @method FurnitureType       setFurniture()          Sets the current record's "Furniture" collection
+ * @method FurnitureType       setFurniturePortfolio() Sets the current record's "FurniturePortfolio" collection
  * 
  * @package    proff.dev
  * @subpackage model
@@ -68,11 +65,6 @@ abstract class BaseFurnitureType extends sfDoctrineRecord
              'local' => 'furniture_type_id',
              'foreign' => 'room_id'));
 
-        $this->hasMany('Portfolio', array(
-             'refClass' => 'FurnitureTypePortfolio',
-             'local' => 'furniture_type_id',
-             'foreign' => 'portfolio_id'));
-
         $this->hasMany('RoomFurnitureType', array(
              'local' => 'id',
              'foreign' => 'furniture_type_id'));
@@ -81,8 +73,8 @@ abstract class BaseFurnitureType extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'type_id'));
 
-        $this->hasMany('FurnitureTypePortfolio', array(
+        $this->hasMany('FurniturePortfolio', array(
              'local' => 'id',
-             'foreign' => 'furniture_type_id'));
+             'foreign' => 'furniture_id'));
     }
 }

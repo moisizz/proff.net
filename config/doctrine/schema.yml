@@ -57,11 +57,6 @@ FurnitureType:
       refClass: RoomFurnitureType
       local:    furniture_type_id
       foreign:  room_id
-    Portfolio:
-      class:    Portfolio
-      refClass: FurnitureTypePortfolio
-      local:    furniture_type_id
-      foreign:  portfolio_id
 
 Furniture:
   columns:
@@ -92,6 +87,11 @@ Furniture:
       refClass: FurnitureMaterialType
       local:    furniture_id
       foreign:  material_type_id
+    Portfolio:
+      class:    Portfolio
+      refClass: FurniturePortfolio
+      local:    furniture_id
+      foreign:  portfolio_id
 
 FurnitureMaterialType:
   options:
@@ -161,9 +161,9 @@ Material:
       local:   type_id
       foreign: id
 
-FurnitureTypePortfolio:
+FurniturePortfolio:
   columns:
-    furniture_type_id:
+    furniture_id:
       type: integer(4)
       notnull: true
     portfolio_id:
@@ -172,7 +172,7 @@ FurnitureTypePortfolio:
   relations:
     FurnitureType:
       class: FurnitureType
-      local: furniture_type_id
+      local: furniture_id
       foreign: id
       onDelete: CASCADE
     Portfolio:
@@ -208,11 +208,11 @@ Portfolio:
       class:    Room
       local:    room_id
       foreign:  id
-    FurnitureType:
-      class:    FurnitureType
-      refClass: FurnitureTypePortfolio
+    Furniture:
+      class:    Furniture
+      refClass: FurniturePortfolio
       local:    portfolio_id
-      foreign:  furniture_type_id
+      foreign:  furniture_id
 
 FurniturePreorder:
   columns:

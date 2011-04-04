@@ -15,25 +15,25 @@ abstract class BasePortfolioForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                  => new sfWidgetFormInputHidden(),
-      'room_id'             => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Room'), 'add_empty' => false)),
-      'name'                => new sfWidgetFormTextarea(),
-      'description'         => new sfWidgetFormTextarea(),
-      'image'               => new sfWidgetFormTextarea(),
-      'date'                => new sfWidgetFormDate(),
-      'furniture_type_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'FurnitureType')),
-      'preorder_list'       => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Preorder')),
+      'id'             => new sfWidgetFormInputHidden(),
+      'room_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Room'), 'add_empty' => false)),
+      'name'           => new sfWidgetFormTextarea(),
+      'description'    => new sfWidgetFormTextarea(),
+      'image'          => new sfWidgetFormTextarea(),
+      'date'           => new sfWidgetFormDate(),
+      'furniture_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Furniture')),
+      'preorder_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Preorder')),
     ));
 
     $this->setValidators(array(
-      'id'                  => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'room_id'             => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Room'))),
-      'name'                => new sfValidatorString(array('max_length' => 511)),
-      'description'         => new sfValidatorString(array('max_length' => 2047, 'required' => false)),
-      'image'               => new sfValidatorString(array('max_length' => 511, 'required' => false)),
-      'date'                => new sfValidatorDate(array('required' => false)),
-      'furniture_type_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'FurnitureType', 'required' => false)),
-      'preorder_list'       => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Preorder', 'required' => false)),
+      'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'room_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Room'))),
+      'name'           => new sfValidatorString(array('max_length' => 511)),
+      'description'    => new sfValidatorString(array('max_length' => 2047, 'required' => false)),
+      'image'          => new sfValidatorString(array('max_length' => 511, 'required' => false)),
+      'date'           => new sfValidatorDate(array('required' => false)),
+      'furniture_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Furniture', 'required' => false)),
+      'preorder_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Preorder', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('portfolio[%s]');
@@ -54,9 +54,9 @@ abstract class BasePortfolioForm extends BaseFormDoctrine
   {
     parent::updateDefaultsFromObject();
 
-    if (isset($this->widgetSchema['furniture_type_list']))
+    if (isset($this->widgetSchema['furniture_list']))
     {
-      $this->setDefault('furniture_type_list', $this->object->FurnitureType->getPrimaryKeys());
+      $this->setDefault('furniture_list', $this->object->Furniture->getPrimaryKeys());
     }
 
     if (isset($this->widgetSchema['preorder_list']))
@@ -68,20 +68,20 @@ abstract class BasePortfolioForm extends BaseFormDoctrine
 
   protected function doSave($con = null)
   {
-    $this->saveFurnitureTypeList($con);
+    $this->saveFurnitureList($con);
     $this->savePreorderList($con);
 
     parent::doSave($con);
   }
 
-  public function saveFurnitureTypeList($con = null)
+  public function saveFurnitureList($con = null)
   {
     if (!$this->isValid())
     {
       throw $this->getErrorSchema();
     }
 
-    if (!isset($this->widgetSchema['furniture_type_list']))
+    if (!isset($this->widgetSchema['furniture_list']))
     {
       // somebody has unset this widget
       return;
@@ -92,8 +92,8 @@ abstract class BasePortfolioForm extends BaseFormDoctrine
       $con = $this->getConnection();
     }
 
-    $existing = $this->object->FurnitureType->getPrimaryKeys();
-    $values = $this->getValue('furniture_type_list');
+    $existing = $this->object->Furniture->getPrimaryKeys();
+    $values = $this->getValue('furniture_list');
     if (!is_array($values))
     {
       $values = array();
@@ -102,13 +102,13 @@ abstract class BasePortfolioForm extends BaseFormDoctrine
     $unlink = array_diff($existing, $values);
     if (count($unlink))
     {
-      $this->object->unlink('FurnitureType', array_values($unlink));
+      $this->object->unlink('Furniture', array_values($unlink));
     }
 
     $link = array_diff($values, $existing);
     if (count($link))
     {
-      $this->object->link('FurnitureType', array_values($link));
+      $this->object->link('Furniture', array_values($link));
     }
   }
 
