@@ -5,8 +5,10 @@ room:
   param:   { module: room, action: show }
 
 furniture_types: #Все виды мебели
-  url:   /furniture/types
-  param: { module: furniture, action: types }
+  url:     /furniture/types
+  class:   sfDoctrineRoute
+  options: { model: FurnitureType, type: list }
+  param:   { module: furniture, action: types }
 
 furniture_type:  #Конкретный вид мебели
   url:  /furniture/type/:id
