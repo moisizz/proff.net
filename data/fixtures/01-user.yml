@@ -1,0 +1,7 @@
+User:
+  admin:
+    username:  admin
+    password:  admin
+    email:     admin@gmail.com
+    is_active: true
+    is_super_admin: true

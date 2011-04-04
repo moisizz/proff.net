@@ -1,0 +1,9 @@
+Portfolio:
+<?php for($i = 1; $i <= 1; $i++): ?>
+  portfilio_<?php echo $i ?>:
+    Room:            living_room
+    name:            <?php echo 'Заказ ' . $i . "\n" ?>
+    image:           <?php echo 'portfolio_' . $i . '.jpg' . "\n" ?>
+    date:            '01.01.2001'
+    FurnitureType:   [tables]
+<?php endfor; ?>

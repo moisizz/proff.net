@@ -1,0 +1,39 @@
+MaterialType:
+  tabletop:
+    name:        'Столешницы'
+    description: 'Покрытие для столов'
+    image:       'tabletop.jpg'
+  painting:
+    name:        'Покраска'
+    description: 'Покрытие поверхности краской'
+    image:       'painting.jpg'
+
+FurnitureType:
+  tables:
+    name:   'Столы'
+    image:
+    Room:          [kitchen, living_room, badroom]
+    
+Material:
+<?php for($i = 1; $i <= 4; $i++): ?>
+  tabletop_<?php echo $i ?>:
+    Type:         tabletop
+    name:         <?php echo 'Столешница вида ' . $i . "\n" ?>
+    image:        <?php echo 'tabletop_' . $i . '.jpg' . "\n" ?>
+<?php endfor; ?>
+  
+<?php for($i = 1; $i <= 4; $i++): ?>
+  paining_<?php echo $i ?>:
+    Type:         painting
+    name:         <?php echo 'Покраска вида ' . $i . "\n" ?>
+    image:        <?php echo 'painting_' . $i . '.jpg' . "\n" ?>
+<?php endfor; ?>
+    
+Furniture:
+<?php for($i = 1; $i <= 4; $i++): ?>
+  table_<?php echo $i ?>:
+    Type:         tables
+    name:         <?php echo 'Стол ' . $i . "\n" ?>
+    image:        <?php echo 'table_' . $i . '.jpg' . "\n" ?>
+    MaterialType:  [tabletop, painting]
+<?php endfor; ?>

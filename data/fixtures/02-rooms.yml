@@ -1,0 +1,9 @@
+Room:
+  living_room:
+    name:   'Гостинная'
+  kitchen:
+    name:   'Кухня'
+  bathroom:
+    name:   'Ванная'
+  badroom:
+    name:   'Спальная'
