@@ -16,4 +16,16 @@ class PortfolioTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Portfolio');
     }
+    
+    public function getRoomPortfolio($room_id)
+    {
+      $q = $this->createQuery('p')
+                ->where('p.room_id = ?', $room_id)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+                
+      $portfolio_list = $q->execute();
+      $q->free();
+      
+      return $portfolio_list;
+    }
 }
