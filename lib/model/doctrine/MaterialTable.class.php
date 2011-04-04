@@ -16,4 +16,15 @@ class MaterialTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Material');
     }
+    
+    public function getMaterial(Doctrine_Query $q)
+    {
+      $alias = $q->getRootAlias();
+      $q->leftJoin($alias.'.Type t')
+        ->leftJoin('t.MaterialFurniture f');
+      $material = $q->fetchOne();
+      $q->free();
+      
+      return $material;
+    }
 }

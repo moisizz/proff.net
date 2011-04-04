@@ -33,6 +33,13 @@ material_type:  #Конкретный вид материалов
   class:   sfDoctrineRoute
   options: { model: MaterialType, type: object, method_for_query: getTypeMaterials }
   param:   { module: material , action: type }
+
+material_show:  #Конкретный материал
+  url:  /material/:id
+  class: sfDoctrineRoute
+  options:  { model: Material, type: object, method_for_query: getMaterial }
+  param:    { module: material, action: show }
+
 portfolio:
   url:   /portfolio
   param: { module: portfolio , action: index }
