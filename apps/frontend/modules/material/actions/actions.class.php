@@ -29,6 +29,6 @@ class materialActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->material = $this->getRoute()->getObject();
-    $this->furniture_list = $this->material['Type']['MaterialFurniture'];
+    $this->furniture_list = $this->material['Furniture'];
   }
 }

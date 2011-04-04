@@ -20,7 +20,7 @@ class FurnitureTable extends Doctrine_Table
     public function getFurniture(Doctrine_Query $q)
     {
       $alias = $q->getRootAlias();
-      $q->leftJoin($alias.'.MaterialType m')
+      $q->leftJoin($alias.'.Material m')
         ->leftJoin($alias.'.Type t');
       
       $furniture = $q->fetchOne();

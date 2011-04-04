@@ -23,7 +23,7 @@ Material:
 <?php endfor; ?>
   
 <?php for($i = 1; $i <= 4; $i++): ?>
-  paining_<?php echo $i ?>:
+  painting_<?php echo $i ?>:
     Type:         painting
     name:         <?php echo 'Покраска вида ' . $i . "\n" ?>
     image:        <?php echo 'painting_' . $i . '.jpg' . "\n" ?>
@@ -35,5 +35,5 @@ Furniture:
     Type:         tables
     name:         <?php echo 'Стол ' . $i . "\n" ?>
     image:        <?php echo 'table_' . $i . '.jpg' . "\n" ?>
-    MaterialType:  [tabletop, painting]
+    Material:  [tabletop_1, tabletop_2, painting_1, painting_3]
 <?php endfor; ?>

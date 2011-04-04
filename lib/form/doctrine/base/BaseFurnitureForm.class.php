@@ -15,25 +15,25 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'                 => new sfWidgetFormInputHidden(),
-      'type_id'            => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'add_empty' => false)),
-      'name'               => new sfWidgetFormTextarea(),
-      'description'        => new sfWidgetFormTextarea(),
-      'image'              => new sfWidgetFormTextarea(),
-      'material_type_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'MaterialType')),
-      'portfolio_list'     => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio')),
-      'preorder_list'      => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Preorder')),
+      'id'             => new sfWidgetFormInputHidden(),
+      'type_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'add_empty' => false)),
+      'name'           => new sfWidgetFormTextarea(),
+      'description'    => new sfWidgetFormTextarea(),
+      'image'          => new sfWidgetFormTextarea(),
+      'material_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Material')),
+      'portfolio_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio')),
+      'preorder_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Preorder')),
     ));
 
     $this->setValidators(array(
-      'id'                 => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'type_id'            => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Type'))),
-      'name'               => new sfValidatorString(array('max_length' => 511)),
-      'description'        => new sfValidatorString(array('max_length' => 2047)),
-      'image'              => new sfValidatorString(array('max_length' => 511, 'required' => false)),
-      'material_type_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'MaterialType', 'required' => false)),
-      'portfolio_list'     => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio', 'required' => false)),
-      'preorder_list'      => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Preorder', 'required' => false)),
+      'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'type_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Type'))),
+      'name'           => new sfValidatorString(array('max_length' => 511)),
+      'description'    => new sfValidatorString(array('max_length' => 2047)),
+      'image'          => new sfValidatorString(array('max_length' => 511, 'required' => false)),
+      'material_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Material', 'required' => false)),
+      'portfolio_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio', 'required' => false)),
+      'preorder_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Preorder', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('furniture[%s]');
@@ -54,9 +54,9 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
   {
     parent::updateDefaultsFromObject();
 
-    if (isset($this->widgetSchema['material_type_list']))
+    if (isset($this->widgetSchema['material_list']))
     {
-      $this->setDefault('material_type_list', $this->object->MaterialType->getPrimaryKeys());
+      $this->setDefault('material_list', $this->object->Material->getPrimaryKeys());
     }
 
     if (isset($this->widgetSchema['portfolio_list']))
@@ -73,21 +73,21 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
 
   protected function doSave($con = null)
   {
-    $this->saveMaterialTypeList($con);
+    $this->saveMaterialList($con);
     $this->savePortfolioList($con);
     $this->savePreorderList($con);
 
     parent::doSave($con);
   }
 
-  public function saveMaterialTypeList($con = null)
+  public function saveMaterialList($con = null)
   {
     if (!$this->isValid())
     {
       throw $this->getErrorSchema();
     }
 
-    if (!isset($this->widgetSchema['material_type_list']))
+    if (!isset($this->widgetSchema['material_list']))
     {
       // somebody has unset this widget
       return;
@@ -98,8 +98,8 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
       $con = $this->getConnection();
     }
 
-    $existing = $this->object->MaterialType->getPrimaryKeys();
-    $values = $this->getValue('material_type_list');
+    $existing = $this->object->Material->getPrimaryKeys();
+    $values = $this->getValue('material_list');
     if (!is_array($values))
     {
       $values = array();
@@ -108,13 +108,13 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
     $unlink = array_diff($existing, $values);
     if (count($unlink))
     {
-      $this->object->unlink('MaterialType', array_values($unlink));
+      $this->object->unlink('Material', array_values($unlink));
     }
 
     $link = array_diff($values, $existing);
     if (count($link))
     {
-      $this->object->link('MaterialType', array_values($link));
+      $this->object->link('Material', array_values($link));
     }
   }
 

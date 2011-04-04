@@ -11,25 +11,31 @@
  * @property string $description
  * @property string $image
  * @property MaterialType $Type
+ * @property Doctrine_Collection $Furniture
+ * @property Doctrine_Collection $FurnitureMaterial
  * @property Doctrine_Collection $MaterialPreorder
  * @property Doctrine_Collection $Preorder
  * 
- * @method integer             getId()               Returns the current record's "id" value
- * @method integer             getTypeId()           Returns the current record's "type_id" value
- * @method string              getName()             Returns the current record's "name" value
- * @method string              getDescription()      Returns the current record's "description" value
- * @method string              getImage()            Returns the current record's "image" value
- * @method MaterialType        getType()             Returns the current record's "Type" value
- * @method Doctrine_Collection getMaterialPreorder() Returns the current record's "MaterialPreorder" collection
- * @method Doctrine_Collection getPreorder()         Returns the current record's "Preorder" collection
- * @method Material            setId()               Sets the current record's "id" value
- * @method Material            setTypeId()           Sets the current record's "type_id" value
- * @method Material            setName()             Sets the current record's "name" value
- * @method Material            setDescription()      Sets the current record's "description" value
- * @method Material            setImage()            Sets the current record's "image" value
- * @method Material            setType()             Sets the current record's "Type" value
- * @method Material            setMaterialPreorder() Sets the current record's "MaterialPreorder" collection
- * @method Material            setPreorder()         Sets the current record's "Preorder" collection
+ * @method integer             getId()                Returns the current record's "id" value
+ * @method integer             getTypeId()            Returns the current record's "type_id" value
+ * @method string              getName()              Returns the current record's "name" value
+ * @method string              getDescription()       Returns the current record's "description" value
+ * @method string              getImage()             Returns the current record's "image" value
+ * @method MaterialType        getType()              Returns the current record's "Type" value
+ * @method Doctrine_Collection getFurniture()         Returns the current record's "Furniture" collection
+ * @method Doctrine_Collection getFurnitureMaterial() Returns the current record's "FurnitureMaterial" collection
+ * @method Doctrine_Collection getMaterialPreorder()  Returns the current record's "MaterialPreorder" collection
+ * @method Doctrine_Collection getPreorder()          Returns the current record's "Preorder" collection
+ * @method Material            setId()                Sets the current record's "id" value
+ * @method Material            setTypeId()            Sets the current record's "type_id" value
+ * @method Material            setName()              Sets the current record's "name" value
+ * @method Material            setDescription()       Sets the current record's "description" value
+ * @method Material            setImage()             Sets the current record's "image" value
+ * @method Material            setType()              Sets the current record's "Type" value
+ * @method Material            setFurniture()         Sets the current record's "Furniture" collection
+ * @method Material            setFurnitureMaterial() Sets the current record's "FurnitureMaterial" collection
+ * @method Material            setMaterialPreorder()  Sets the current record's "MaterialPreorder" collection
+ * @method Material            setPreorder()          Sets the current record's "Preorder" collection
  * 
  * @package    proff.dev
  * @subpackage model
@@ -76,6 +82,15 @@ abstract class BaseMaterial extends sfDoctrineRecord
         $this->hasOne('MaterialType as Type', array(
              'local' => 'type_id',
              'foreign' => 'id'));
+
+        $this->hasMany('Furniture', array(
+             'refClass' => 'FurnitureMaterial',
+             'local' => 'material_id',
+             'foreign' => 'furniture_id'));
+
+        $this->hasMany('FurnitureMaterial', array(
+             'local' => 'id',
+             'foreign' => 'material_id'));
 
         $this->hasMany('MaterialPreorder', array(
              'local' => 'id',
