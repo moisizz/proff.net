@@ -1,0 +1,1 @@
+<?php slot('title', $furniture_type['name']) ?>

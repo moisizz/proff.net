@@ -21,6 +21,7 @@ class furnitureActions extends sfActions
 
   public function executeType(sfWebRequest $request)
   {
+    $this->furniture_type = $this->getRoute()->getObject();
   }
 
   public function executeShow(sfWebRequest $request)
