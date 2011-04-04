@@ -28,5 +28,10 @@ class roomActions extends myActions
   public function executeShow(sfWebRequest $request)
   {
     $this->room = $this->getRoute()->getObject();
+    
+    
+    $room_id = $this->room['id'];
+    $this->room_furniture_type_list = FurnitureTypeTable::getInstance()->getRoomFurnitureTypes($room_id);
+    $this->portfolio_list = PortfolioTable::getInstance()->getRoomPortfolio($room_id);
   }
 }
