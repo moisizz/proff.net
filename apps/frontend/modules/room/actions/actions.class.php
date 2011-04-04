@@ -21,6 +21,7 @@ class roomActions extends myActions
      * @todo Когда будут готовы картинки квартиры вида с верху список комнат больше не понадобится
      */
     $this->rooms = RoomTable::getInstance()->getRooms();
+    $this->portfolio_list = PortfolioTable::getInstance()->getPortfolioList();
   }
   
   

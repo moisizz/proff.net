@@ -29,6 +29,17 @@ class PortfolioTable extends Doctrine_Table
       return $portfolio_list;
     }
     
+    public function getPortfolioList()
+    {
+      $q = $this->createQuery('p')
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+                
+      $portfolio_list = $q->execute();
+      $q->free();
+      
+      return $portfolio_list;
+    }
+    
     public function getPortfolio(Doctrine_Query $q)
     {
       $alias = $q->getRootAlias();
