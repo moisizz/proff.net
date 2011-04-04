@@ -23,5 +23,6 @@ class portfolioActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->portfolio = $this->getRoute()->getObject();
+    $this->portfolio_furniture_list = $this->portfolio['Furniture'];
   }
 }

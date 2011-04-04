@@ -28,4 +28,16 @@ class PortfolioTable extends Doctrine_Table
       
       return $portfolio_list;
     }
+    
+    public function getPortfolio(Doctrine_Query $q)
+    {
+      $alias = $q->getRootAlias();
+      $q->leftJoin($alias.'.Room r')
+        ->leftJoin($alias.'.Furniture f');
+        
+      $portfolio = $q->fecthOne();
+      $q->free();
+      
+      return $portfolio;
+    }
 }
