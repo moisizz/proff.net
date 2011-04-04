@@ -3,7 +3,13 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <?php include_title() ?>
+    <?php if($title = get_slot('title')): ?>
+    	<title>
+    	  <?php echo $title; ?>
+    	</title>
+      <?php else: ?>
+        <?php include_title(); ?>
+     <?php endif; ?>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
@@ -13,7 +19,6 @@
         echo '.' . $element . ' a { color: black; text-decoration: none; font-weight: bold }';
       ?>
     </style>
-
   </head>
   <body>
     <div id="main_menu">
