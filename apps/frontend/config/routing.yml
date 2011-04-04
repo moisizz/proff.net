@@ -41,5 +41,7 @@ activation:
   param: { module: user, action: activate }
 
 homepage:
-  url:   /
-  param: { module: room, action: index }
+  url:     /
+  class:   sfDoctrineRoute
+  options: { model: Room, type: list }
+  param:   { module: room, action: index }

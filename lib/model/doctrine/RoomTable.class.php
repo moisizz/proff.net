@@ -16,4 +16,13 @@ class RoomTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Room');
     }
+    
+    public function getRooms()
+    {
+      $q = $this->createQuery('r')->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+      
+      $rooms = $q->execute();
+      $q->free();
+      return $rooms;
+    }
 }

@@ -17,5 +17,9 @@ class roomActions extends myActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    /**
+     * @todo Когда будут готовы картинки квартиры вида с верху список комнат больше не понадобится
+     */
+    $this->rooms = RoomTable::getInstance()->getRooms();
   }
 }
