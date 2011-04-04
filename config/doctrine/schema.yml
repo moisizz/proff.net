@@ -130,7 +130,7 @@ MaterialType:
       notnull: false
       default: 'default_material_type.png'
   relations:
-    Furniture:
+    MaterialFurniture:
       class:    Furniture
       refClass: FurnitureMaterialType
       local:    material_type_id

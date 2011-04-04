@@ -15,16 +15,16 @@
  * @method string              getName()                  Returns the current record's "name" value
  * @method string              getDescription()           Returns the current record's "description" value
  * @method string              getImage()                 Returns the current record's "image" value
- * @method Doctrine_Collection getMaterialType()          Returns the current record's "MaterialType" collection
+ * @method Doctrine_Collection getMaterialFurniture()     Returns the current record's "MaterialFurniture" collection
  * @method Doctrine_Collection getFurnitureMaterialType() Returns the current record's "FurnitureMaterialType" collection
  * @method Doctrine_Collection getMaterial()              Returns the current record's "Material" collection
  * @method MaterialType        setId()                    Sets the current record's "id" value
  * @method MaterialType        setName()                  Sets the current record's "name" value
  * @method MaterialType        setDescription()           Sets the current record's "description" value
  * @method MaterialType        setImage()                 Sets the current record's "image" value
- * @method MaterialType        setMaterialType()          Sets the current record's "MaterialType" collection
+ * @method MaterialType        setMaterialFurniture()     Sets the current record's "MaterialFurniture" collection
  * @method MaterialType        setFurnitureMaterialType() Sets the current record's "FurnitureMaterialType" collection
- * @method MaterialType        setMaterial()              Sets the current record's "Material" collectionType
+ * @method MaterialType        setMaterial()              Sets the current record's "Material" collectionFurniture
  * @property Doctrine_Collection $FurnitureMaterialType
  * @property Doctrine_Collection $Material
  * 
@@ -32,14 +32,14 @@
  * @method string              getName()                  Returns the current record's "name" value
  * @method string              getDescription()           Returns the current record's "description" value
  * @method string              getImage()                 Returns the current record's "image" value
- * @method Doctrine_Collection getMaterialType()          Returns the current record's "MaterialType" collection
+ * @method Doctrine_Collection getMaterialFurniture()     Returns the current record's "MaterialFurniture" collection
  * @method Doctrine_Collection getFurnitureMaterialType() Returns the current record's "FurnitureMaterialType" collection
  * @method Doctrine_Collection getMaterial()              Returns the current record's "Material" collection
  * @method MaterialType        setId()                    Sets the current record's "id" value
  * @method MaterialType        setName()                  Sets the current record's "name" value
  * @method MaterialType        setDescription()           Sets the current record's "description" value
  * @method MaterialType        setImage()                 Sets the current record's "image" value
- * @method MaterialType        setMaterialType()          Sets the current record's "MaterialType" collection
+ * @method MaterialType        setMaterialFurniture()     Sets the current record's "MaterialFurniture" collection
  * @method MaterialType        setFurnitureMaterialType() Sets the current record's "FurnitureMaterialType" collection
  * @method MaterialType        setMaterial()              Sets the current record's "Material" collection
  * 
@@ -80,7 +80,7 @@ abstract class BaseMaterialType extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Furniture as MaterialType', array(
+        $this->hasMany('Furniture as MaterialFurniture', array(
              'refClass' => 'FurnitureMaterialType',
              'local' => 'material_type_id',
              'foreign' => 'furniture_id'));
