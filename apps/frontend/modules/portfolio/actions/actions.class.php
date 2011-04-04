@@ -17,6 +17,7 @@ class portfolioActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    $this->portfolio_list = $this->getRoute()->getObjects();
   }
 
   public function executeShow(sfWebRequest $request)

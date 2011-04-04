@@ -41,8 +41,10 @@ material_show:  #Конкретный материал
   param:    { module: material, action: show }
 
 portfolio:
-  url:   /portfolio
-  param: { module: portfolio , action: index }
+  url:     /portfolio
+  class:   sfDoctrineRoute
+  options: { model:  Portfolio, type: list }
+  param:   { module: portfolio , action: index }
 
 portfolio_show:
   url:     /portfolio/:id
