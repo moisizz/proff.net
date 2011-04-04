@@ -27,6 +27,12 @@ material_types: #Все виды материалов
   class:   sfDoctrineRoute
   options: { model:  MaterialType, type: list }
   param:   { module: material, action: types }
+
+material_type:  #Конкретный вид материалов
+  url:     /material/type/:id
+  class:   sfDoctrineRoute
+  options: { model: MaterialType, type: object, method_for_query: getTypeMaterials }
+  param:   { module: material , action: type }
 portfolio:
   url:   /portfolio
   param: { module: portfolio , action: index }

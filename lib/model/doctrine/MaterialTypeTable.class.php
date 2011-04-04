@@ -16,4 +16,15 @@ class MaterialTypeTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('MaterialType');
     }
+    
+    public function getTypeMaterials(Doctrine_Query $q)
+    {
+      $alias = $q->getRootAlias();
+      $q->leftJoin($alias.'.Material m');
+      
+      $material = $q->fetchOne();
+      $q->free();
+      
+      return $material;
+    }
 }

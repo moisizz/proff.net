@@ -22,6 +22,8 @@ class materialActions extends sfActions
 
   public function executeType(sfWebRequest $request)
   {
+    $this->material_type = $this->getRoute()->getObject();
+    $this->material_list = $this->material_type['Material'];
   }
 
   public function executeShow(sfWebRequest $request)
