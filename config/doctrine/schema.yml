@@ -87,6 +87,31 @@ Furniture:
       class:   FurnitureType
       local:   type_id
       foreign: id
+    MaterialType:
+      class:    MaterialType
+      refClass: FurnitureMaterialType
+      local:    furniture_id
+      foreign:  material_type_id
+
+FurnitureMaterialType:
+  options:
+    symfony:
+      form:   false
+      filter: false
+  columns:
+    furniture_id:     integer(4)
+    material_type_id: integer(4)
+  relations:
+    Furniture:
+      class:    Furniture
+      local:    furniture_id
+      foreign:  id
+      onDelete: CASCADE
+    MaterialType:
+      class:    MaterialType
+      local:    material_type_id
+      foreign:  id
+      onDelete: CASCADE
 
 MaterialType:
   columns:
@@ -104,6 +129,12 @@ MaterialType:
       type:    string(511)
       notnull: false
       default: 'default_material_type.png'
+  relations:
+    Furniture:
+      class:    Furniture
+      refClass: FurnitureMaterialType
+      local:    material_type_id
+      foreign:  furniture_id
 
 Material:
   columns:

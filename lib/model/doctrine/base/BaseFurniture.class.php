@@ -11,25 +11,31 @@
  * @property string $description
  * @property string $image
  * @property FurnitureType $Type
+ * @property Doctrine_Collection $MaterialType
+ * @property Doctrine_Collection $FurnitureMaterialType
  * @property Doctrine_Collection $FurniturePreorder
  * @property Doctrine_Collection $Preorder
  * 
- * @method integer             getId()                Returns the current record's "id" value
- * @method integer             getTypeId()            Returns the current record's "type_id" value
- * @method string              getName()              Returns the current record's "name" value
- * @method string              getDescription()       Returns the current record's "description" value
- * @method string              getImage()             Returns the current record's "image" value
- * @method FurnitureType       getType()              Returns the current record's "Type" value
- * @method Doctrine_Collection getFurniturePreorder() Returns the current record's "FurniturePreorder" collection
- * @method Doctrine_Collection getPreorder()          Returns the current record's "Preorder" collection
- * @method Furniture           setId()                Sets the current record's "id" value
- * @method Furniture           setTypeId()            Sets the current record's "type_id" value
- * @method Furniture           setName()              Sets the current record's "name" value
- * @method Furniture           setDescription()       Sets the current record's "description" value
- * @method Furniture           setImage()             Sets the current record's "image" value
- * @method Furniture           setType()              Sets the current record's "Type" value
- * @method Furniture           setFurniturePreorder() Sets the current record's "FurniturePreorder" collection
- * @method Furniture           setPreorder()          Sets the current record's "Preorder" collection
+ * @method integer             getId()                    Returns the current record's "id" value
+ * @method integer             getTypeId()                Returns the current record's "type_id" value
+ * @method string              getName()                  Returns the current record's "name" value
+ * @method string              getDescription()           Returns the current record's "description" value
+ * @method string              getImage()                 Returns the current record's "image" value
+ * @method FurnitureType       getType()                  Returns the current record's "Type" value
+ * @method Doctrine_Collection getMaterialType()          Returns the current record's "MaterialType" collection
+ * @method Doctrine_Collection getFurnitureMaterialType() Returns the current record's "FurnitureMaterialType" collection
+ * @method Doctrine_Collection getFurniturePreorder()     Returns the current record's "FurniturePreorder" collection
+ * @method Doctrine_Collection getPreorder()              Returns the current record's "Preorder" collection
+ * @method Furniture           setId()                    Sets the current record's "id" value
+ * @method Furniture           setTypeId()                Sets the current record's "type_id" value
+ * @method Furniture           setName()                  Sets the current record's "name" value
+ * @method Furniture           setDescription()           Sets the current record's "description" value
+ * @method Furniture           setImage()                 Sets the current record's "image" value
+ * @method Furniture           setType()                  Sets the current record's "Type" value
+ * @method Furniture           setMaterialType()          Sets the current record's "MaterialType" collection
+ * @method Furniture           setFurnitureMaterialType() Sets the current record's "FurnitureMaterialType" collection
+ * @method Furniture           setFurniturePreorder()     Sets the current record's "FurniturePreorder" collection
+ * @method Furniture           setPreorder()              Sets the current record's "Preorder" collection
  * 
  * @package    proff.dev
  * @subpackage model
@@ -76,6 +82,15 @@ abstract class BaseFurniture extends sfDoctrineRecord
         $this->hasOne('FurnitureType as Type', array(
              'local' => 'type_id',
              'foreign' => 'id'));
+
+        $this->hasMany('MaterialType', array(
+             'refClass' => 'FurnitureMaterialType',
+             'local' => 'furniture_id',
+             'foreign' => 'material_type_id'));
+
+        $this->hasMany('FurnitureMaterialType', array(
+             'local' => 'id',
+             'foreign' => 'furniture_id'));
 
         $this->hasMany('FurniturePreorder', array(
              'local' => 'id',
