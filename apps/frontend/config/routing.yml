@@ -1,3 +1,9 @@
+room:
+  url:     /room/:id
+  class:   sfDoctrineRoute
+  options: { model:  Room, type: object }
+  param:   { module: room, action: show }
+
 furniture_types:
   url:   /furniture/types
   param: { module: furniture, action: types }

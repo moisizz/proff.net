@@ -22,4 +22,11 @@ class roomActions extends myActions
      */
     $this->rooms = RoomTable::getInstance()->getRooms();
   }
+  
+  
+  
+  public function executeShow(sfWebRequest $request)
+  {
+    $this->room = $this->getRoute()->getObject();
+  }
 }
