@@ -1,17 +1,7 @@
 <?php slot('title', $room['name']) ?>
 
 Список типов мебели для этой комнаты
-<div id="furniture_types">
-	<?php if (count($room_furniture_type_list) != 0): ?>
-    <?php foreach($room_furniture_type_list as $furniture_type): ?>
-      <div class="furniture_type">
-        <?php echo link_to($furniture_type['name'], 'furniture_type', array('id' => $furniture_type['id'])) ?>
-      </div>
-    <?php endforeach; ?>
-	<?php else: ?>
-		Нет мебели для этой комнаты
-	<?php endif; ?>
-</div>
+<?php include_partial('furniture/types', array('furniture_type_list' => $room_furniture_type_list)) ?>
 
 Список сделанных работ для этой комнаты:
 <div id="portfolio_list">
