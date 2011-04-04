@@ -5,5 +5,5 @@ Portfolio:
     name:            <?php echo 'Заказ ' . $i . "\n" ?>
     image:           <?php echo 'portfolio_' . $i . '.jpg' . "\n" ?>
     date:            '01.01.2001'
-    FurnitureType:   [tables]
+    Furniture:   [table_1]
 <?php endfor; ?>
