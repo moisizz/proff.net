@@ -22,6 +22,11 @@ furniture_show:  #Конкретная мебель
   options:  { model: Furniture, type: object, method_for_query: getFurniture }
   param:    { module: furniture, action: show }
 
+material_types: #Все виды материалов
+  url:     /material/types
+  class:   sfDoctrineRoute
+  options: { model:  MaterialType, type: list }
+  param:   { module: material, action: types }
 portfolio:
   url:   /portfolio
   param: { module: portfolio , action: index }
