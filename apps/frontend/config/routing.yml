@@ -13,7 +13,7 @@ furniture_types: #Все виды мебели
 furniture_type:  #Конкретный вид мебели
   url:  /furniture/type/:id
   class: sfDoctrineRoute
-  options:  { model: FurnitureType, type: object }
+  options:  { model: FurnitureType, type: object, method_for_query: getTypeFurniture }
   param:    { module: furniture, action: type }
 
 material_types:
