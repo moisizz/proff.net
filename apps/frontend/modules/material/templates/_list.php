@@ -4,7 +4,7 @@
   <?php if(count($material_list) != 0): ?>	
     <?php foreach($material_list as $material): ?>
   		<div class="material">
-  			<?php echo link_to($material['name'], 'material_type', array('id' => $material['id'])) ?>
+  			<?php echo link_to($material['name'], 'material_show', array('id' => $material['id'])) ?>
   		</div>
   	<?php endforeach; ?>
   <?php else: ?>
