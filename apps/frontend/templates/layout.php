@@ -43,7 +43,16 @@
         </li>
       </ul>
     </div>
-
+		<div id="user_menu">
+			<ul>
+				<?php if($sf_user->isAuthenticated()): ?>
+					<li><?php echo $sf_user->getUsername() ?></li>
+					<li><?php echo link_to('Выйти','signout') ?></li>
+				<?php else: ?>
+					<li><?php echo link_to('Войти','signin') ?></li>
+				<?php endif ?>
+			</ul>
+		</div>
 
     <div id="content">
       <?php echo $sf_content ?>

@@ -1,4 +1,4 @@
-#main_menu {
+#main_menu, #user_menu {
   margin: 0 auto;
   margin-top: 25px;
   position: relative;
@@ -6,14 +6,14 @@
   width: 42%;
 }
 
-#main_menu ul {
+#main_menu ul, #user_menu ul {
   list-style: none outside none;
   overflow: auto;
   margin: 0;
   padding: 0;
 }
 
-#main_menu li {
+#main_menu li, #user_menu li {
   float: left;
   margin-right: 10px;
 }
