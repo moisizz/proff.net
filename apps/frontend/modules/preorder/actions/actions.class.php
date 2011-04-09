@@ -10,13 +10,11 @@
  */
 class preorderActions extends sfActions
 {
- /**
-  * Executes index action
-  *
-  * @param sfRequest $request A request object
-  */
-  public function executeIndex(sfWebRequest $request)
+  public function executeAddUnit(sfWebRequest $request)
   {
-    $this->forward('default', 'module');
+    $id = $request->getParameter('id');
+    $unit_type = $request->getParameter('unit_type');
+    
+    $this->add_result = $this->getUser()->addUnitToPreorder($id, $unit_type);
   }
 }

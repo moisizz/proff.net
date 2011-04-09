@@ -62,6 +62,10 @@ contacts:
   
 
 #Роутинги пользователя
+add_unit:
+  url: /preorder/add/:unit_type/:id
+  param: { module: preorder, action addUnit }
+
 signin:
   url: /login
   param: { module: user, action: signin }
