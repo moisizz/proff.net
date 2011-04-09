@@ -286,11 +286,11 @@ Preorder:
       type:     string(2047)
       notnull:  false
   relations:
-    User:
-      class:    User
-      local:    user_id
-      foreign:  id
-      onDelete: CASCADE
+#    User:
+#      class:    User
+#      local:    user_id
+#      foreign:  id
+#      onDelete: CASCADE
     Furniture:
       class:    Furniture
       refClass: FurniturePreorder

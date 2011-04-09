@@ -8,7 +8,6 @@
  * @property integer $id
  * @property integer $user_id
  * @property string $description
- * @property User $User
  * @property Doctrine_Collection $Furniture
  * @property Doctrine_Collection $Material
  * @property Doctrine_Collection $Portfolio
@@ -19,7 +18,6 @@
  * @method integer             getId()                Returns the current record's "id" value
  * @method integer             getUserId()            Returns the current record's "user_id" value
  * @method string              getDescription()       Returns the current record's "description" value
- * @method User                getUser()              Returns the current record's "User" value
  * @method Doctrine_Collection getFurniture()         Returns the current record's "Furniture" collection
  * @method Doctrine_Collection getMaterial()          Returns the current record's "Material" collection
  * @method Doctrine_Collection getPortfolio()         Returns the current record's "Portfolio" collection
@@ -29,7 +27,6 @@
  * @method Preorder            setId()                Sets the current record's "id" value
  * @method Preorder            setUserId()            Sets the current record's "user_id" value
  * @method Preorder            setDescription()       Sets the current record's "description" value
- * @method Preorder            setUser()              Sets the current record's "User" value
  * @method Preorder            setFurniture()         Sets the current record's "Furniture" collection
  * @method Preorder            setMaterial()          Sets the current record's "Material" collection
  * @method Preorder            setPortfolio()         Sets the current record's "Portfolio" collection
@@ -68,11 +65,6 @@ abstract class BasePreorder extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('User', array(
-             'local' => 'user_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
-
         $this->hasMany('Furniture', array(
              'refClass' => 'FurniturePreorder',
              'local' => 'preorder_id',
