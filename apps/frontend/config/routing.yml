@@ -72,7 +72,7 @@ signout:
 
 register:
   url: /register
-  param: { module: user, action: register }
+  param: { module: registration, action: apply }
 
 password:
   url: /reset_password
