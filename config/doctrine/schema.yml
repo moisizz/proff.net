@@ -280,17 +280,17 @@ Preorder:
       primary: true
       autoincrement: true
     user_id:
-      type:     integer(4)
+      type:     integer
       notnull:  true
     description:
       type:     string(2047)
       notnull:  false
   relations:
-#    User:
-#      class:    User
-#      local:    user_id
-#      foreign:  id
-#      onDelete: CASCADE
+    User:
+      class:    sfGuardUser
+      local:    user_id
+      foreign:  id
+      onDelete: CASCADE
     Furniture:
       class:    Furniture
       refClass: FurniturePreorder
