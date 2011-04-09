@@ -1,6 +1,7 @@
 <?php slot('title', $portfolio['name']) ?>
 
 <div id="portfilio_name">Кодовое имя: <?php echo $portfolio['name'] ?></div>
+<?php include_partial('preorder/add_unit', array('id' => $portfolio['id'], 'unit_type' => 'portfolio')) ?>
 <div id="portfolio_room">Комната для которой выполнялась работа: <?php echo $portfolio['Room']['name'] ?></div>
 <div id="portfolio_description">Описание: <?php echo $portfolio['description'] ?></div>
 <div id="portfolio_image">
