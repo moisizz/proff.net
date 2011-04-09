@@ -75,5 +75,24 @@ class myUser extends sfGuardSecurityUser
     
     parent::signOut();
   }
+  
+  public function getUnitCount()
+  {
+    if($preorder = $this->getAttribute('preorder')):
+      $count = 0;    
+    
+      foreach ($this->unit_types as $type)
+      {
+        if(isset($preorder[$type]))
+        {
+          $count += count($preorder[$type]);
+        }
+      }
+
+      return $count;
+    else:
+      return 0;
+    endif;
+  }
 }
 

@@ -48,6 +48,7 @@
 				<?php if($sf_user->isAuthenticated()): ?>
 					<li><?php echo $sf_user->getUsername() ?></li>
 					<li><?php echo link_to('Выйти','signout') ?></li>
+					<li><?php include_component('preorder', 'preorderBar') ?></li>
 				<?php else: ?>
 					<li><?php echo link_to('Войти','signin') ?></li>
 				<?php endif ?>
