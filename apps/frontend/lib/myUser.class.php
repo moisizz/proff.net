@@ -11,6 +11,32 @@ class myUser extends sfBasicSecurityUser
   
   /**
    * 
+   * Удаление элемента из предзкаказа
+   * @param unknown_type $id
+   * @param unknown_type $unit_type
+   */
+  public function removeUnitFromPreorder($id, $unit_type)
+  {
+    if($this->hasUnit($id, $unit_type))
+    {
+      $preorder = $this->getAttribute('preorder');
+      foreach($preorder[$unit_type] as $i => $unit_id)
+      {
+        if($unit_id == $id)
+        {
+          unset($preorder[$unit_type][$i]);
+          break;
+        } 
+      }     
+      $this->setAttribute('preorder', $preorder);
+      return true;
+    }
+    else 
+      return false;
+  }
+  
+  /**
+   * 
    * Добавление элемента в предзаказ
    * @param unknown_type $id
    * @param unknown_type $unit_type
@@ -64,6 +90,27 @@ class myUser extends sfBasicSecurityUser
       $this->getAttributeHolder()->remove('preorder');
   }
    
+  /**
+   * 
+   * Проверка, есть ли в предзаказе элемент
+   * указанного типа с указанным идентификатором
+   * @param unknown_type $id
+   * @param unknown_type $unit_type
+   */
+  public function hasUnit($id, $unit_type)
+  {
+    $preorder = $this->getAttribute('preorder');
+
+    if(($preorder !== false) && 
+       isset($preorder[$unit_type]) &&
+       in_array($id, $preorder[$unit_type])) 
+    {
+      return  true;
+    }
+    else
+      return false;
+  }
+  
   public function getUnitCount()
   {
     if($preorder = $this->getAttribute('preorder')):
