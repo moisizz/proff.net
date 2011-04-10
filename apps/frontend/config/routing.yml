@@ -61,10 +61,14 @@ contacts:
   param: { module: information, action: contacts }
   
 
-#Роутинги пользователя
+#Роутинги предзаказа
 preorder_show:
   url:   /preorder
   param: { module: preorder, action: show }
+
+preorder_help:
+  url:  /preorder/help
+  param: { module: preorder, action: help }
 
 add_unit:
   url: /preorder/add/:unit_type/:id
