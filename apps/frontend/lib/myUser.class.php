@@ -110,6 +110,18 @@ class myUser extends sfBasicSecurityUser
     else
       return false;
   }
+
+  /**
+   * 
+   * Получение предзаказа
+   */
+  public function getPreorder()
+  {
+    if($this->hasAttribute('preorder'))
+      return $this->getAttribute('preorder');
+    else
+      return array();
+  }
   
   public function getUnitCount()
   {
