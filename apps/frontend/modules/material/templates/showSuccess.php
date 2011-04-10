@@ -6,7 +6,7 @@
 	                                  array('id' => $material['type_id'])) ?>
 </div>
 <div id="material_name">Название: <?php echo $material['name'] ?></div>
-<?php include_partial('preorder/add_unit', array('id' => $material['id'], 'unit_type' => 'material')) ?>
+<?php include_component('preorder', 'unitTransfer', array('id' => $material['id'], 'unit_type' => 'material')) ?>
 <div id="material_description">Описание: <?php echo $material['description'] ?></div>
 <div id="material_image">
 	Картинка:<br />

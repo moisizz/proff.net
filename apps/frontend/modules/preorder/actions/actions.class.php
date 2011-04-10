@@ -17,4 +17,12 @@ class preorderActions extends sfActions
     
     $this->add_result = $this->getUser()->addUnitToPreorder($id, $unit_type);
   }
+  
+  public function executeRemoveUnit(sfWebRequest $request)
+  {
+    $id = $request->getParameter('id');
+    $unit_type = $request->getParameter('unit_type');
+    
+    $this->remove_result = $this->getUser()->removeUnitFromPreorder($id, $unit_type);
+  }
 }

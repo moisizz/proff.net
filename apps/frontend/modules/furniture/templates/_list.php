@@ -5,7 +5,7 @@
 		<?php foreach($furniture_list as $furniture): ?>
 			<div class="furniture">
 		    <?php echo link_to($furniture['name'], 'furniture_show', array('id' => $furniture['id'])) ?>
-		    <?php include_partial('preorder/add_unit', array('id' => $furniture['id'], 'unit_type' => 'furniture')) ?>
+		    <?php include_component('preorder', 'unitTransfer', array('id' => $furniture['id'], 'unit_type' => 'furniture')) ?>
 			</div>
 	    <?php endforeach; ?>
 	<?php else: ?>

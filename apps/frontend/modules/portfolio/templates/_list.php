@@ -5,7 +5,7 @@
   	<?php foreach($portfolio_list as $portfolio): ?>
   		<div class="portfolio">
   			<?php echo link_to($portfolio['name'], 'portfolio_show', array('id' => $portfolio['id'])) ?>
-  			<?php include_partial('preorder/add_unit', array('id' => $portfolio['id'], 'unit_type' => 'portfolio')) ?>
+  			<?php include_component('preorder', 'unitTransfer', array('id' => $portfolio['id'], 'unit_type' => 'portfolio')) ?>
   		</div>
   	<?php endforeach; ?>
   <?php else: ?>

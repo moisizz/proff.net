@@ -5,7 +5,7 @@
     <?php foreach($material_list as $material): ?>
   		<div class="material">
   			<?php echo link_to($material['name'], 'material_show', array('id' => $material['id'])) ?>
-  			<?php include_partial('preorder/add_unit', array('id' => $material['id'], 'unit_type' => 'material')) ?>
+  			<?php include_component('preorder', 'unitTransfer', array('id' => $material['id'], 'unit_type' => 'material')) ?>
   		</div>
   	<?php endforeach; ?>
   <?php else: ?>

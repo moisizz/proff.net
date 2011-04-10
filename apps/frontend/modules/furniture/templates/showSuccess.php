@@ -5,7 +5,7 @@
                                  'furniture_type', array('id' => $furniture['type_id']))?>
 </div>
 <div id="furniture_name">Название: <?php echo $furniture['name'] ?></div>
-<?php include_partial('preorder/add_unit', array('id' => $furniture['id'], 'unit_type' => 'furniture')) ?>
+<?php include_component('preorder', 'unitTransfer', array('id' => $furniture['id'], 'unit_type' => 'furniture')) ?>
 <div id="furniture_description">Описание: <?php echo $furniture['description'] ?></div>
 <div id="furniture_image">
 	Картинка: <br />

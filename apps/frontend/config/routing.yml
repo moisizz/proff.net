@@ -64,8 +64,12 @@ contacts:
 #Роутинги пользователя
 add_unit:
   url: /preorder/add/:unit_type/:id
-  param: { module: preorder, action addUnit }
+  param: { module: preorder, action: addUnit }
 
+remove_unit:
+  url: /preorder/remove/:unit_type/:id
+  param: { module: preorder, action: removeUnit }
+  
 homepage:
   url:     /
   class:   sfDoctrineRoute

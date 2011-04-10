@@ -1,0 +1,1 @@
+<?php if ($remove_result) echo 'Удаление удачно'; else echo 'Удаление неудачно'; ?>
