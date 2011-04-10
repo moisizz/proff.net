@@ -17,6 +17,12 @@ class FurnitureTable extends Doctrine_Table
         return Doctrine_Core::getTable('Furniture');
     }
     
+    /**
+     * 
+     * Функция для роутинга, возвращающая мебель
+     * с присоединенными данными
+     * @param unknown_type $q
+     */
     public function getFurniture(Doctrine_Query $q)
     {
       $alias = $q->getRootAlias();
@@ -28,5 +34,23 @@ class FurnitureTable extends Doctrine_Table
       $q->free();
       
       return $furniture;
+    }
+    
+    /**
+     * 
+     * Функция возвращающая массив мебели, по заданному
+     * списку идентификаторов
+     * @param unknown_type $ids
+     */
+    public function getFurnitureByIds($ids)
+    {
+      $q = $this->createQuery('f')
+                ->whereIn('f.id', $ids)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+                
+      $furn = $q->execute();
+      $q->free();
+      
+      return $furn;
     }
 }

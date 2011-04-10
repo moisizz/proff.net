@@ -51,4 +51,22 @@ class PortfolioTable extends Doctrine_Table
       
       return $portfolio;
     }
+    
+    /**
+     * 
+     * Функция возвращающая массив сделаных работ, по заданному
+     * списку идентификаторов
+     * @param unknown_type $ids
+     */
+    public function getPortfolioByIds($ids)
+    {
+      $q = $this->createQuery('p')
+                ->whereIn('p.id', $ids)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+                
+      $portfolio = $q->execute();
+      $q->free();
+      
+      return $portfolio;
+    }      
 }

@@ -27,4 +27,22 @@ class MaterialTable extends Doctrine_Table
       
       return $material;
     }
+    
+    /**
+     * 
+     * Функция возвращающая массив материалов, по заданному
+     * списку идентификаторов
+     * @param unknown_type $ids
+     */
+    public function getMaterialeByIds($ids)
+    {
+      $q = $this->createQuery('m')
+                ->whereIn('m.id', $ids)
+                ->setHydrationMode(Doctrine_Core::HYDRATE_ARRAY);
+                
+      $material = $q->execute();
+      $q->free();
+      
+      return $material;
+    }    
 }
