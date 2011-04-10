@@ -13,7 +13,9 @@ abstract class BasePreorderFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'user_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
+      'first_name'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'middle_name'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'last_name'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'    => new sfWidgetFormFilterInput(),
       'furniture_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Furniture')),
       'material_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Material')),
@@ -21,7 +23,9 @@ abstract class BasePreorderFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
-      'user_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('User'), 'column' => 'id')),
+      'first_name'     => new sfValidatorPass(array('required' => false)),
+      'middle_name'    => new sfValidatorPass(array('required' => false)),
+      'last_name'      => new sfValidatorPass(array('required' => false)),
       'description'    => new sfValidatorPass(array('required' => false)),
       'furniture_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Furniture', 'required' => false)),
       'material_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Material', 'required' => false)),
@@ -100,7 +104,9 @@ abstract class BasePreorderFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'             => 'Number',
-      'user_id'        => 'ForeignKey',
+      'first_name'     => 'Text',
+      'middle_name'    => 'Text',
+      'last_name'      => 'Text',
       'description'    => 'Text',
       'furniture_list' => 'ManyKey',
       'material_list'  => 'ManyKey',

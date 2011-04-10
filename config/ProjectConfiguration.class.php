@@ -9,8 +9,6 @@ class ProjectConfiguration extends sfProjectConfiguration
   {
     $this->enablePlugins('sfDoctrinePlugin');
     $this->enablePlugins('sfFirePHPPlugin');
-    $this->enablePlugins('sfCaptchaGDPlugin');
     $this->enablePlugins('sfDoctrineGuardPlugin');
-    $this->enablePlugins('sfForkedDoctrineApplyPlugin');
   }
 }

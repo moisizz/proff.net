@@ -1,6 +1,6 @@
 <?php
 
-class myUser extends sfGuardSecurityUser
+class myUser extends sfBasicSecurityUser
 {
   /**
    * 
@@ -63,19 +63,7 @@ class myUser extends sfGuardSecurityUser
     if ($this->hasAttribute('preorder'))
       $this->getAttributeHolder()->remove('preorder');
   }
-  
-  /**
-   * Функция разлогинивания пользователя, дополненная уничтожением
-   * незакрытых предзаказов
-   * @see sfGuardSecurityUser::signOut()
-   */
-  public function signOut()
-  {
-    $this->removePreorder();
-    
-    parent::signOut();
-  }
-  
+   
   public function getUnitCount()
   {
     if($preorder = $this->getAttribute('preorder')):
