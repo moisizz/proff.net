@@ -12,26 +12,7 @@ class preorderActions extends sfActions
 {
   public function executeShow(sfWebRequest $request)
   {
-    $preorder = $this->getUser()->getPreorder();
-    
-    $this->furniture_list = array();
-    $this->material_list = array();
-    $this->portfolio_list = array();
-    
-    if(isset($preorder['furniture']) && count($preorder['furniture']) != 0)
-    {
-      $this->furniture_list = FurnitureTable::getInstance()->getFurnitureByIds($preorder['furniture']);      
-    }
-    
-    if(isset($preorder['material']) && count($preorder['material']) != 0)
-    {
-      $this->material_list = MaterialTable::getInstance()->getMaterialeByIds($preorder['material']);
-    }
-    
-    if(isset($preorder['portfolio']) && count($preorder['portfolio']) != 0)
-    {
-      $this->portfolio_list = PortfolioTable::getInstance()->getPortfolioByIds($preorder['portfolio']);
-    }
+    $this->getAddedUnits();
   }
   
   public function executeAddUnit(sfWebRequest $request)
@@ -52,5 +33,33 @@ class preorderActions extends sfActions
   
   public function executeHelp(sfWebRequest $request)
   {
+  }
+
+  /**
+   * 
+   * Получение списков добавленных в предзаказ элементов
+   */
+  protected function getAddedUnits()
+  {
+    $preorder = $this->getUser()->getPreorder();
+    
+    $this->furniture_list = array();
+    $this->material_list = array();
+    $this->portfolio_list = array();
+    
+    if(isset($preorder['furniture']) && count($preorder['furniture']) != 0)
+    {
+      $this->furniture_list = FurnitureTable::getInstance()->getFurnitureByIds($preorder['furniture']);      
+    }
+    
+    if(isset($preorder['material']) && count($preorder['material']) != 0)
+    {
+      $this->material_list = MaterialTable::getInstance()->getMaterialeByIds($preorder['material']);
+    }
+    
+    if(isset($preorder['portfolio']) && count($preorder['portfolio']) != 0)
+    {
+      $this->portfolio_list = PortfolioTable::getInstance()->getPortfolioByIds($preorder['portfolio']);
+    }
   }
 }
