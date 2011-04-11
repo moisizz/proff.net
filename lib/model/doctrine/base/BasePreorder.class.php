@@ -56,20 +56,20 @@ abstract class BasePreorder extends sfDoctrineRecord
              'autoincrement' => true,
              'length' => 4,
              ));
-        $this->hasColumn('first_name', 'string', 511, array(
+        $this->hasColumn('first_name', 'string', 63, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => 511,
+             'length' => 63,
              ));
-        $this->hasColumn('middle_name', 'string', 511, array(
+        $this->hasColumn('middle_name', 'string', 63, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => 511,
+             'length' => 63,
              ));
-        $this->hasColumn('last_name', 'string', 511, array(
+        $this->hasColumn('last_name', 'string', 63, array(
              'type' => 'string',
              'notnull' => true,
-             'length' => 511,
+             'length' => 63,
              ));
         $this->hasColumn('description', 'string', 2047, array(
              'type' => 'string',

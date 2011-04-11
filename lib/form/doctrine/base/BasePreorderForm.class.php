@@ -16,9 +16,9 @@ abstract class BasePreorderForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
-      'first_name'     => new sfWidgetFormTextarea(),
-      'middle_name'    => new sfWidgetFormTextarea(),
-      'last_name'      => new sfWidgetFormTextarea(),
+      'first_name'     => new sfWidgetFormInputText(),
+      'middle_name'    => new sfWidgetFormInputText(),
+      'last_name'      => new sfWidgetFormInputText(),
       'description'    => new sfWidgetFormTextarea(),
       'furniture_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Furniture')),
       'material_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Material')),
@@ -27,9 +27,9 @@ abstract class BasePreorderForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'first_name'     => new sfValidatorString(array('max_length' => 511)),
-      'middle_name'    => new sfValidatorString(array('max_length' => 511)),
-      'last_name'      => new sfValidatorString(array('max_length' => 511)),
+      'first_name'     => new sfValidatorString(array('max_length' => 63)),
+      'middle_name'    => new sfValidatorString(array('max_length' => 63)),
+      'last_name'      => new sfValidatorString(array('max_length' => 63)),
       'description'    => new sfValidatorString(array('max_length' => 2047, 'required' => false)),
       'furniture_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Furniture', 'required' => false)),
       'material_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Material', 'required' => false)),
