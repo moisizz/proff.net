@@ -12,7 +12,8 @@ class preorderActions extends sfActions
 {
   public function executeShow(sfWebRequest $request)
   {
-    $this->getAddedUnits();
+    if($this->getUser()->hasAddedUnits())
+      $this->getAddedUnits();
   }
   
   public function executeAddUnit(sfWebRequest $request)
@@ -37,20 +38,23 @@ class preorderActions extends sfActions
     
   public function executeSend(sfWebRequest $request)
   {
-    $this->getAddedUnits();
     
-    $this->form = new PreorderForm();
-    
-    if($request->isMethod(sfWebRequest::POST))
-    {
-      $this->form->bind($request->getParameter($this->form->getName()));
-      if($this->form->isValid())
+    if($this->getUser()->hasAddedUnits()):
+      $this->getAddedUnits();
+      
+      $this->form = new PreorderForm();
+      
+      if($request->isMethod(sfWebRequest::POST))
       {
-        $this->form->save();
-        
-        return $this->redirect($this->generateUrl('homepage'));
+        $this->form->bind($request->getParameter($this->form->getName()));
+        if($this->form->isValid())
+        {
+          $this->form->save();
+          
+          return $this->redirect($this->generateUrl('homepage'));
+        }
       }
-    }
+     endif;
   }
 
   /**

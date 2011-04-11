@@ -4,7 +4,9 @@ class preorderComponents extends sfComponents
 {
   public function executePreorderBar()
   {
-    $this->unit_count = $this->getUser()->getUnitCount();
+    $user = $this->getUser();
+    if($user->hasAddedUnits())
+      $this->unit_count = $user->getUnitCount();
   }
   
   public function executeUnitTransfer()
