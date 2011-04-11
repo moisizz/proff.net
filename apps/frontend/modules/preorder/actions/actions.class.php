@@ -14,23 +14,23 @@ class preorderActions extends sfActions
   {
     $preorder = $this->getUser()->getPreorder();
     
-    $this->furniture = array();
-    $this->materials = array();
-    $this->portfolio = array();
+    $this->furniture_list = array();
+    $this->material_list = array();
+    $this->portfolio_list = array();
     
     if(isset($preorder['furniture']) && count($preorder['furniture']) != 0)
     {
-      $this->furniture = FurnitureTable::getInstance()->getFurnitureByIds($preorder['furniture']);      
+      $this->furniture_list = FurnitureTable::getInstance()->getFurnitureByIds($preorder['furniture']);      
     }
     
     if(isset($preorder['material']) && count($preorder['material']) != 0)
     {
-      $this->materials = MaterialTable::getInstance()->getMaterialeByIds($preorder['material']);
+      $this->material_list = MaterialTable::getInstance()->getMaterialeByIds($preorder['material']);
     }
     
     if(isset($preorder['portfolio']) && count($preorder['portfolio']) != 0)
     {
-      $this->portfolio = PortfolioTable::getInstance()->getPortfolioByIds($preorder['portfolio']);
+      $this->portfolio_list = PortfolioTable::getInstance()->getPortfolioByIds($preorder['portfolio']);
     }
   }
   
