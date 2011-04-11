@@ -34,6 +34,24 @@ class preorderActions extends sfActions
   public function executeHelp(sfWebRequest $request)
   {
   }
+    
+  public function executeSend(sfWebRequest $request)
+  {
+    $this->getAddedUnits();
+    
+    $this->form = new PreorderForm();
+    
+    if($request->isMethod(sfWebRequest::POST))
+    {
+      $this->form->bind($request->getParameter($this->form->getName()));
+      if($this->form->isValid())
+      {
+        $this->form->save();
+        
+        return $this->redirect($this->generateUrl('homepage'));
+      }
+    }
+  }
 
   /**
    * 

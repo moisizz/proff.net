@@ -62,6 +62,10 @@ contacts:
   
 
 #Роутинги предзаказа
+preorder_send:
+  url:   /preorder/send
+  param: { module: preorder, action: send }
+ 
 preorder_show:
   url:   /preorder
   param: { module: preorder, action: show }
