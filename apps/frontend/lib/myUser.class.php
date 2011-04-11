@@ -141,5 +141,33 @@ class myUser extends sfBasicSecurityUser
       return 0;
     endif;
   }
+  
+  /**
+   * 
+   * Проверка, есть ли добавленные в предзаказ
+   * элементы
+   */
+  public function hasAddedUnits()
+  {
+    //Если предзаказ вообще есть в сессии
+    if($this->hasAttribute('preorder')):
+      $preorder = $this->getAttribute('preorder');
+      
+      //Проверяем, есть ли хоть один ненулевой массив элементов
+      foreach($preorder as $unit_array)
+      {
+        if(count($unit_array) > 0)
+        {
+          //Если есть, то дальше проверять не нужно, 
+          //сообщаем, что добавленные элементы есть
+          return true;
+        }
+      }
+    endif;
+    
+    //Если дошли до сюда - значит либо предзаказа нет в сессии,
+    //либо нет добавленных элементов
+    return false;
+  }
 }
 
