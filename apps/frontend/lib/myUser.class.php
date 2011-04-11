@@ -84,7 +84,7 @@ class myUser extends sfBasicSecurityUser
    * 
    * Удаление предзаказа из сессии
    */
-  protected function removePreorder()
+  public function removePreorder()
   {
     if ($this->hasAttribute('preorder'))
       $this->getAttributeHolder()->remove('preorder');
