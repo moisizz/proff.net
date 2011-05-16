@@ -1,0 +1,27 @@
+#material_list {
+  position: relative;
+}
+
+.material {  
+  position: relative;
+  overflow: auto;
+  margin-bottom: 30px;
+}
+
+.material > div {
+  float:left;
+}
+
+.material_inf {
+  margin-left: 15px;
+}
+
+.material_name {
+  font-size: 20pt;
+}
+
+.material_description {
+  font-size: 12pt;
+  color: #555555;
+  margin-bottom: 10px;
+}

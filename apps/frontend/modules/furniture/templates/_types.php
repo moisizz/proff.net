@@ -4,7 +4,12 @@
 	<?php if (count($furniture_type_list) != 0): ?>
     <?php foreach($furniture_type_list as $furniture_type): ?>
       <div class="furniture_type">
-        <?php echo link_to($furniture_type['name'], 'furniture_type', array('id' => $furniture_type['id'])) ?>
+      	<div class="furniture_type_image">
+        	<?php echo image_tag('/uploads/furniture_type/'.$furniture_type['image'], array('width' => '100')) ?>
+      	</div>
+      	<div class="furniture_type_name">
+          <?php echo link_to($furniture_type['name'], 'furniture_type', array('id' => $furniture_type['id'])) ?>
+      	</div>
       </div>
     <?php endforeach; ?>
 	<?php else: ?>

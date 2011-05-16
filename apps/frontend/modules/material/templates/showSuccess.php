@@ -10,7 +10,7 @@
 <div id="material_description">Описание: <?php echo $material['description'] ?></div>
 <div id="material_image">
 	Картинка:<br />
-	<img src="/uploads/material/<?php echo $material['image']; ?>" width="300" height="300">
+	<img src="/uploads/material/<?php echo $material['image']; ?>" width="300">
 </div>
 
 Мебель, для которой подойдет этот материал:

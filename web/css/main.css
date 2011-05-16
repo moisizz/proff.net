@@ -3,7 +3,11 @@
   margin-top: 25px;
   position: relative;
   overflow: auto;
-  width: 42%;
+  width: 44%;
+}
+
+#user_menu {
+  margin-bottom: 25px;
 }
 
 #main_menu ul, #user_menu ul {
@@ -19,4 +23,6 @@
 }
 
 #content {
+  width: 80%;
+  margin: 0 auto;
 }

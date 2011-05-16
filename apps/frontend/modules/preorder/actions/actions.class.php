@@ -22,6 +22,15 @@ class preorderActions extends sfActions
     $unit_type = $request->getParameter('unit_type');
     
     $this->add_result = $this->getUser()->addUnitToPreorder($id, $unit_type);
+    
+    if($request->isXmlHttpRequest())
+    {
+      $new_url = $this->generateUrl('remove_unit', array('id' => $id, 'unit_type' => $unit_type));
+      if($this->add_result)
+        return $this->renderText('{"result":true, "type":"added", "new_url":"'.$new_url.'"}');
+      else
+        return $this->renderText('{"result":false, "type":"added", "new_url":"'.$new_url.'"}');
+    }
   }
   
   public function executeRemoveUnit(sfWebRequest $request)
@@ -30,6 +39,15 @@ class preorderActions extends sfActions
     $unit_type = $request->getParameter('unit_type');
     
     $this->remove_result = $this->getUser()->removeUnitFromPreorder($id, $unit_type);
+      
+    if($request->isXmlHttpRequest())
+    {
+      $new_url = $this->generateUrl('add_unit', array('id' => $id, 'unit_type' => $unit_type));
+      if($this->remove_result)
+        return $this->renderText('{"result":true, "type":"removed", "new_url":"'.$new_url.'"}');
+      else
+        return $this->renderText('{"result":false, "type":"removed", "new_url":"'.$new_url.'"}');
+    }
   }
   
   public function executeHelp(sfWebRequest $request)

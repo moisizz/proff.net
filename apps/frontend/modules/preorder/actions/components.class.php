@@ -16,7 +16,7 @@ class preorderComponents extends sfComponents
       $this->message = 'Убрать из предзаказа';
     else:
       $this->transfer_type = 'add_unit';
-      $this->message = 'Добавить в предзаказ';
+      $this->message = 'В предзаказ';
     endif;
   }
 }

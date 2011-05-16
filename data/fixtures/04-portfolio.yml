@@ -1,9 +1,16 @@
 Portfolio:
-<?php for($i = 1; $i <= 1; $i++): ?>
-  portfilio_<?php echo $i ?>:
-    Room:            living_room
-    name:            <?php echo 'Заказ ' . $i . "\n" ?>
-    image:           <?php echo 'portfolio_' . $i . '.jpg' . "\n" ?>
-    date:            '01.01.2001'
-    Furniture:   [table_1]
-<?php endfor; ?>
+  portfolio_1:
+    Room:      kitchen
+    name:      'Кухонный интерьер'
+    image:     'portfolio_1.jpg'
+    Furniture: [portfolio_chair_1, portfolio_table_1]
+  portfolio_2:
+    Room:      living_room
+    name:      'Интерьер гостиной'
+    image:     'portfolio_2.jpg'
+    Furniture: [portfolio_chair_2, portfolio_table_2]
+  portfolio_3:
+    Room:      bedroom
+    name:      'Рабочее место'
+    image:     'portfolio_3.jpg'
+    Furniture: [portfolio_cabinet_3, portfolio_table_3]

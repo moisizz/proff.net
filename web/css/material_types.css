@@ -1,0 +1,23 @@
+#material_types {
+  position: relative;
+}
+
+.material_type {
+  position: relative;
+  width: 500px;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.material_type div {
+  float: left;
+}
+
+.material_type_image {
+}
+
+.material_type_name {
+  font-size: 28pt;
+  margin-left: 15px;
+  margin-top: 16px;
+}

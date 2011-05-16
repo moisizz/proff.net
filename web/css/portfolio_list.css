@@ -1,0 +1,25 @@
+#portfolio_list {
+  position: relative;
+}
+
+.portfolio {  
+  position: relative;
+  overflow: auto;
+  margin-bottom: 30px;
+}
+
+.portfolio > div {
+}
+  
+.portfolio_inf {
+}
+
+.portfolio_name {
+  font-size: 20pt;
+}
+
+.portfolio_description {
+  font-size: 12pt;
+  color: #555555;
+  margin-bottom: 10px;
+}

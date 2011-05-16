@@ -9,7 +9,7 @@
 <div id="furniture_description">Описание: <?php echo $furniture['description'] ?></div>
 <div id="furniture_image">
 	Картинка: <br />
-	<img src="/uploads/furniture/<?php echo $furniture['image']; ?>" width="300" height="300">
+	<img src="/uploads/furniture/<?php echo $furniture['image']; ?>" width="300">
 </div>
 
 Материалы, подходящие для этой мебели:

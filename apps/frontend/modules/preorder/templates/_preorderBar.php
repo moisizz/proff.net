@@ -2,8 +2,8 @@
 
 <?php if($sf_user->hasAddedUnits()): ?>
   <span id="user_preorder_bar">Элементов в предзаказе: <?php echo $unit_count ?></span><br  />
-  <?php echo link_to('Посмотреть', 'preorder_show') ?>
-  <?php echo link_to('Отправить нам', 'preorder_send') ?>
+  <?php echo link_to('Посмотреть', 'preorder_show') ?> 
+  <?php echo link_to('Отправить нам', 'preorder_send') ?> 
 <?php else: ?>
 	Предзаказ пуст
 <?php endif; ?>

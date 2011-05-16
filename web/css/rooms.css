@@ -1,0 +1,82 @@
+#appartment {
+  position: relative;
+  overflow: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 465px;
+}
+
+.room_name {
+  color: #444444;
+  font-size: 10pt;
+  font-family: 'Trebuchet MS';
+  font-weight: bold;
+  border: 2px solid black;
+  background: white;
+  padding: 2px;
+  position: absolute;
+}
+
+.room_name:hover {
+  text-decoration: underline;
+}
+
+#left_room_block, #right_room_block {
+  float: left;
+}
+
+#right_top_room_block, #right_bottom_room_block {
+  position: relative;
+  overflow: auto;
+}
+
+#livingroom {
+	background: url(/images/rooms/livingroom.png) center no-repeat;
+	width: 176px;
+	height: 259px;
+}
+
+#bedroom {
+  background: url(/images/rooms/bedroom.png) center no-repeat;
+  width: 176px;
+  height: 185px;
+}
+
+#kitchen, #bathroom {
+  float: left;
+}
+
+#kitchen {
+  background: url(/images/rooms/kitchen.png) center no-repeat;
+  width: 128px;
+  height: 199px;
+}
+
+#bathroom {
+  background: url(/images/rooms/bathroom.png) center no-repeat;
+  width: 111px;
+  height: 199px;
+}
+
+#hall {
+  background: url(/images/rooms/hall.png) center no-repeat;
+  width: 243px;
+  height: 92px;
+}
+
+#childroom {
+  background: url(/images/rooms/childroom.png) center no-repeat;
+  width: 243px;
+  height: 149px;
+}
+
+.room {
+  border: 2px solid black;
+  position: relative;
+}
+
+.room:hover {
+  border-color: green;
+  border-style: dashed;
+  cursor: pointer;
+}

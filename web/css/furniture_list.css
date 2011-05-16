@@ -1,0 +1,21 @@
+#furniture_list {
+  position: relative;
+}
+
+.furniture {	
+  position: relative;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.furniture div {
+  float:left;
+}
+
+.furniture_inf {
+  margin-left: 15px;
+}
+
+.furniture_name {
+  font-size: 20pt;
+}

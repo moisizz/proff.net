@@ -1,0 +1,22 @@
+#furniture_types {
+  position: relative;
+}
+
+.furniture_type {
+  position: relative;
+  overflow: auto;
+  margin-bottom: 20px;
+}
+
+.furniture_type div {
+  float: left;
+}
+
+.furniture_type_image {
+}
+
+.furniture_type_name {
+	font-size: 28pt;
+	margin-left: 15px;
+	margin-top: 22px;
+}

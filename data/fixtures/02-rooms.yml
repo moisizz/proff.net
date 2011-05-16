@@ -1,9 +1,24 @@
 Room:
   living_room:
+    id:     1
     name:   'Гостинная'
-  kitchen:
-    name:   'Кухня'
-  bathroom:
-    name:   'Ванная'
-  badroom:
+  
+  bedroom:
+    id:     2
     name:   'Спальная'
+  
+  kitchen:
+    id:     3
+    name:   'Кухня'
+  
+  bathroom:
+    id:     4
+    name:   'Ванная'
+  
+  hall:
+    id:     5
+    name:   'Прихожая'
+  
+  childroom:
+    id:     6
+    name:   'Детская'
