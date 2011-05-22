@@ -12,4 +12,8 @@
  */
 class Material extends BaseMaterial
 {
+  public function __toString()
+  {
+    return $this->getName();
+  }
 }

@@ -12,4 +12,8 @@
  */
 class Portfolio extends BasePortfolio
 {
+  public function __toString()
+  {
+    return $this->getName();
+  }
 }

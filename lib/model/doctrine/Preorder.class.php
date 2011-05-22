@@ -12,4 +12,8 @@
  */
 class Preorder extends BasePreorder
 {
+  public function __toString()
+  {
+    return $this->getId();
+  }
 }

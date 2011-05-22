@@ -12,4 +12,8 @@
  */
 class FurnitureType extends BaseFurnitureType
 {
+  public function __toString()
+  {
+    return $this->getName();
+  }
 }
