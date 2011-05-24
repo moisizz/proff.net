@@ -18,6 +18,7 @@
 }
 
 #main_menu li, #user_menu li {
+  list-style: none outside none;
   float: left;
   margin-right: 10px;
 }

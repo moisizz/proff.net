@@ -1,0 +1,29 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           MaterialType
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          material_type
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:    { label: "Добавить мебель"}
+        _edit:   { label: 'Редактировать' }
+        _delete: { label: 'Удалить' }
+      fields:
+        name:        { label: 'Название' }
+        description: { label: 'Описание' }
+        image:       { label: 'Картинка' }
+      list:
+        title:   'Виды материалов'
+        display: [name, description, image]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

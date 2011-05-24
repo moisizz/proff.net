@@ -1,0 +1,28 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           FurnitureType
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          furniture_type
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:    { label: "Добавить тип мебели"}
+        _edit:   { label: 'Редактировать' }
+        _delete: { label: 'Удалить' }
+      fields:
+        name:  { label: 'Название' }
+        image: { label: 'Картинка' }
+      list:
+        title:   'Виды мебели'
+        display: [name, image]
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

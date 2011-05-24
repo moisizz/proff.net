@@ -1,0 +1,31 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           Preorder
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          preorder
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions:
+        _new:    { label: "Добавить"}
+        _edit:   { label: 'Редактировать' }
+        _delete: { label: 'Удалить' }
+      fields:
+        first_name:    { label: "Имя"}
+        middle_name:      { label: "Фамилия"}
+        last_name:    { label: "Отчество"}
+        description:  { label: 'Дополнительные пожелания' }
+      list:
+        title:   'Отправленные предзаказы'
+        display: [first_name, middle_name, last_name, description, created_at]
+        
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

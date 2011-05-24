@@ -1,16 +1,70 @@
+room:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Room
+    module:               room
+    prefix_path:          /room
+    column:               id
+    with_wildcard_routes: true
+
+preorder:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Preorder
+    module:               preorder
+    prefix_path:          /preorder
+    column:               id
+    with_wildcard_routes: true
+
+portfolio:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Portfolio
+    module:               portfolio
+    prefix_path:          /portfolio
+    column:               id
+    with_wildcard_routes: true
+
+material_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                MaterialType
+    module:               material_type
+    prefix_path:          /material_type
+    column:               id
+    with_wildcard_routes: true
+
+material:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Material
+    module:               material
+    prefix_path:          /material
+    column:               id
+    with_wildcard_routes: true
+
+furniture_type:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                FurnitureType
+    module:               furniture_type
+    prefix_path:          /furniture_type
+    column:               id
+    with_wildcard_routes: true
+
+furniture:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Furniture
+    module:               furniture
+    prefix_path:          /furniture
+    column:               id
+    with_wildcard_routes: true
+
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
-
-# generic rules
-# please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
+  param: { module: furniture, action: index }
