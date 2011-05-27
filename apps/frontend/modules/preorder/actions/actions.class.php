@@ -71,8 +71,9 @@ class preorderActions extends sfActions
         {
           $this->getUser()->rememberPreorderSendTime();
           $preorder = $this->form->save();
+          $this->preorder_id = $preorder->getId();
           
-          return $this->redirect($this->generateUrl('homepage'));
+          return 'After';
         }
       }
      endif;
