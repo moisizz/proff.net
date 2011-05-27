@@ -35,35 +35,35 @@ class PreorderForm extends BasePreorderForm
     $user = sfContext::getInstance()->getUser();
     $preorder = $user->getPreorder();
     
-    $furniture_list = $preorder['furniture'];
-    $material_list  = $preorder['material'];
-    $portfolio_list = $preorder['portfolio'];
-    
     $preorder_id = $this->getObject()->getId();
+
+    if(isset($preorder['furniture']))
+      foreach($preorder['furniture'] as $furniture_id)
+      {
+        $bind = new FurniturePreorder();
+        $bind->setPreorderId($preorder_id);
+        $bind->setFurnitureId($furniture_id);
+        $bind->save();
+      }
+
     
-    foreach($furniture_list as $furniture_id)
-    {
-      $bind = new FurniturePreorder();
-      $bind->setPreorderId($preorder_id);
-      $bind->setFurnitureId($furniture_id);
-      $bind->save();
-    }
-    
-    foreach($material_list as $material_id)
-    {
-      $bind = new MaterialPreorder();
-      $bind->setPreorderId($preorder_id);
-      $bind->setMaterialId($material_id);
-      $bind->save();
-    }
-    
-    foreach($portfolio_list as $portfolio_id)
-    {
-      $bind = new PortfolioPreorder();
-      $bind->setPreorderId($preorder_id);
-      $bind->setPortfolioId($portfolio_id);
-      $bind->save();
-    }
+    if(isset($preorder['material']))
+      foreach($preorder['material'] as $material_id)
+      {
+        $bind = new MaterialPreorder();
+        $bind->setPreorderId($preorder_id);
+        $bind->setMaterialId($material_id);
+        $bind->save();
+      }
+      
+    if(isset($preorder['portfolio']))
+      foreach($preorder['portfolio'] as $portfolio_id)
+      {
+        $bind = new PortfolioPreorder();
+        $bind->setPreorderId($preorder_id);
+        $bind->setPortfolioId($portfolio_id);
+        $bind->save();
+      }
     
     $user->removePreorder();
   }
