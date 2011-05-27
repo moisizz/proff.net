@@ -85,7 +85,12 @@ add_unit:
 remove_unit:
   url: /preorder/remove/:unit_type/:id
   param: { module: preorder, action: removeUnit }
-  
+
+#Роутинг для девелоперских нужд
+clear_session:
+  url: /clear
+  param: { module: preorder, action: clear}
+
 homepage:
   url:     /
   class:   sfDoctrineRoute

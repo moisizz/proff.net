@@ -8,6 +8,5 @@
 	Предзаказ пуст
 <?php endif; ?> 
 <?php echo link_to('Отправленные', 'sended_preorder') ?> 
-<?php echo link_to('Что это такое?', 'preorder_help') ?> 
-<?php echo link_to('Очистить' , 'clear_session') ?>
+<?php echo link_to('Что это такое?', 'preorder_help') ?>
 

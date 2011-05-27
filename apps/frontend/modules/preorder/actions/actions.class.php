@@ -113,4 +113,10 @@ class preorderActions extends sfActions
       $this->portfolio_list = PortfolioTable::getInstance()->getPortfolioByIds($preorder['portfolio']);
     }
   }
+
+  public function executeClear(sfWebRequest $request)
+  {
+    $this->getUser()->getAttributeHolder()->clear();
+    $this->redirect($request->getReferer());
+  }
 }

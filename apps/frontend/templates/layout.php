@@ -21,6 +21,7 @@
     </style>
   </head>
   <body>
+    <?php echo link_to('Очистить сессию' , 'clear_session') ?>
     <div id="main_menu">
       <ul>
         <li class="room_index">
@@ -43,6 +44,7 @@
         </li>
       </ul>
     </div>
+
 		<div id="user_menu">
 		  <?php include_component('preorder', 'preorderBar') ?>
 		</div>
