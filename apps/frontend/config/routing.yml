@@ -70,6 +70,10 @@ preorder_show:
   url:   /preorder
   param: { module: preorder, action: show }
 
+sended_preorder:
+  url:   /preoder/sended
+  param: { module: preorder, action: showSended }
+
 preorder_help:
   url:  /preorder/help
   param: { module: preorder, action: help }

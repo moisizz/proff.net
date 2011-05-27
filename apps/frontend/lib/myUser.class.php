@@ -122,6 +122,18 @@ class myUser extends sfBasicSecurityUser
     else
       return array();
   }
+
+  /**
+   * 
+   * Возвращает номера отправленных недавно предзаказов
+   */
+  public function  getSendedPreorders()
+  {
+    if($this->hasAttribute('sended_preorders'))
+      return $this->getAttribute('sended_preorders');
+    else
+      return false;
+  }
   
   public function getUnitCount()
   {
@@ -141,7 +153,7 @@ class myUser extends sfBasicSecurityUser
       return 0;
     endif;
   }
-  
+
   /**
    * 
    * Проверка, есть ли добавленные в предзаказ
@@ -179,6 +191,17 @@ class myUser extends sfBasicSecurityUser
     $this->setAttribute('send_time', time());
   }
 
+  public function rememberSendedPreorder($preorder_id)
+  {
+    if($this->hasAttribute('sended_preorders'))
+      $sended_preorders = $this->getAttribute('sended_preorders');
+    else
+      $sended_preorders = array();
+      
+    $sended_preorders[] = array('num' => $preorder_id, 'date' => time());
+    $this->setAttribute('sended_preorders', $sended_preorders);
+  }
+  
   /**
    * 
    * Проверяет, прошло ли достаточно времени с момента
@@ -188,11 +211,11 @@ class myUser extends sfBasicSecurityUser
   {
     $send_time = $this->getAttribute('send_time');
         
-    if( ($send_time !== false) && ((time()-$send_time) >= sfConfig::get('preorder_send_time_wait', 1800)) )
+    if( ($send_time !== false) && ((time()-$send_time) >= sfConfig::get('preorder_send_time_wait', 300)) )
       return true;
     else
       return false;
   }
-  
+
 }
 

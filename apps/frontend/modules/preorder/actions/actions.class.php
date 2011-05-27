@@ -16,6 +16,11 @@ class preorderActions extends sfActions
       $this->getAddedUnits();
   }
   
+  public function executeShowSended(sfWebRequest $request)
+  {
+    $this->preorder_list = $this->getUser()->getSendedPreorders();
+  }
+  
   public function executeAddUnit(sfWebRequest $request)
   {
     $id = $request->getParameter('id');
@@ -56,8 +61,8 @@ class preorderActions extends sfActions
     
   public function executeSend(sfWebRequest $request)
   {
-    
-    if($this->getUser()->hasAddedUnits()):
+    $user = $this->getUser();
+    if($user->hasAddedUnits()):
       $this->getAddedUnits();
       
       $this->form = new PreorderForm();
@@ -69,9 +74,11 @@ class preorderActions extends sfActions
         $this->form->bind($request->getParameter($this->form->getName()));
         if($this->form->isValid())
         {
-          $this->getUser()->rememberPreorderSendTime();
+          $user->rememberPreorderSendTime();
+          
           $preorder = $this->form->save();
           $this->preorder_id = $preorder->getId();
+          $user->rememberSendedPreorder($this->preorder_id);
           
           return 'After';
         }
