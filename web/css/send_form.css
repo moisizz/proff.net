@@ -1,0 +1,61 @@
+form {
+  margin-bottom: 25px;
+}
+
+
+#send_form {
+  position: relative;
+  overflow: auto;
+}
+
+#form_help {
+	width: 350px;
+  color: #444444;
+  font-size: 10pt;
+  margin-bottom: 15px;
+}
+
+#form_labels, #form_fields, #form_errors {
+  float: left;
+}
+
+#form_fields, #form_errors {
+  margin-left: 15px;
+}
+
+#form_fields input, #form_fields textarea {
+  min-width: 300px;
+}
+
+.form_label, .form_field, .form_error {
+  min-height: 40px;
+}
+
+.form_label {
+  font-family: 'Trebuchet MS';
+}
+
+.form_error {
+	position: relative;
+	top: 3px;
+  color: red;
+  font-size: 10pt;
+}
+
+#form_submit {
+  text-align: center;
+}
+
+#form_submit button {
+  border: none;
+  background: none; 
+  margin-top: 20px; 
+}
+
+#form_submit button span {
+  font-size: 14pt; 
+}
+
+#form_submit button:hover {
+  cursor: pointer;
+}
