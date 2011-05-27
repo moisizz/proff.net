@@ -1,1 +1,2 @@
 #all:
+#  preorder_send_time_wait: 1800 #в секундах 

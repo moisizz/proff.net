@@ -169,5 +169,30 @@ class myUser extends sfBasicSecurityUser
     //либо нет добавленных элементов
     return false;
   }
+
+  /**
+   * 
+   * Запоминает время, когда был отправлен предзаказ
+   */
+  public function rememberPreorderSendTime()
+  {
+    $this->setAttribute('send_time', time());
+  }
+
+  /**
+   * 
+   * Проверяет, прошло ли достаточно времени с момента
+   * отправки предзаказа
+   */
+  public function isPassPreorderSendTimeWait()
+  {
+    $send_time = $this->getAttribute('send_time');
+        
+    if( ($send_time !== false) && ((time()-$send_time) >= sfConfig::get('preorder_send_time_wait', 1800)) )
+      return true;
+    else
+      return false;
+  }
+  
 }
 

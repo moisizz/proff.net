@@ -64,10 +64,13 @@ class preorderActions extends sfActions
       
       if($request->isMethod(sfWebRequest::POST))
       {
+        if(!$this->getUser()->isPassPreorderSendTimeWait())
+          return sfView::ERROR;
         $this->form->bind($request->getParameter($this->form->getName()));
         if($this->form->isValid())
         {
-          $this->form->save();
+          $this->getUser()->rememberPreorderSendTime();
+          $preorder = $this->form->save();
           
           return $this->redirect($this->generateUrl('homepage'));
         }
