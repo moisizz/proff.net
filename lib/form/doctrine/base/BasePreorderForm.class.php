@@ -27,9 +27,9 @@ abstract class BasePreorderForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'first_name'     => new sfValidatorString(array('max_length' => 63)),
-      'middle_name'    => new sfValidatorString(array('max_length' => 63)),
-      'last_name'      => new sfValidatorString(array('max_length' => 63)),
+      'first_name'     => new sfValidatorString(array('max_length' => 63, 'required' => false)),
+      'middle_name'    => new sfValidatorString(array('max_length' => 63, 'required' => false)),
+      'last_name'      => new sfValidatorString(array('max_length' => 63, 'required' => false)),
       'description'    => new sfValidatorString(array('max_length' => 2047, 'required' => false)),
       'furniture_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Furniture', 'required' => false)),
       'material_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Material', 'required' => false)),

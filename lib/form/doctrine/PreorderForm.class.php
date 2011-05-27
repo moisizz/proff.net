@@ -18,11 +18,6 @@ class PreorderForm extends BasePreorderForm
                                          'last_name'   => 'Фамилия',
                                          'middle_name' => 'Отчество',
                                          'description' => 'Пожелания'));
-
-    $this->validatorSchema['first_name']->setOption('required', false);
-    $this->validatorSchema['last_name']->setOption('required', false);
-    $this->validatorSchema['middle_name']->setOption('required', false);
-    $this->validatorSchema['description']->setOption('required', false);
     
     $this->validatorSchema['first_name']->setMessage('max_length', 'Слишком длинная строка');
     $this->validatorSchema['last_name']->setMessage('max_length', 'Слишком длинная строка');

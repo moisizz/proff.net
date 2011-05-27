@@ -281,13 +281,13 @@ Preorder:
       autoincrement: true
     first_name:
       type:    string(63)
-      notnull: true
+      notnull: false
     middle_name:
       type:    string(63)
-      notnull: true
+      notnull: false
     last_name:
       type:    string(63)
-      notnull: true
+      notnull: false
     description:
       type:     string(2047)
       notnull:  false

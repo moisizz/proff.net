@@ -13,9 +13,9 @@ abstract class BasePreorderFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'first_name'     => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'middle_name'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'last_name'      => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'first_name'     => new sfWidgetFormFilterInput(),
+      'middle_name'    => new sfWidgetFormFilterInput(),
+      'last_name'      => new sfWidgetFormFilterInput(),
       'description'    => new sfWidgetFormFilterInput(),
       'furniture_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Furniture')),
       'material_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Material')),
