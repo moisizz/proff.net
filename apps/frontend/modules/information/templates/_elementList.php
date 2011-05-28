@@ -1,8 +1,5 @@
 <?php use_stylesheet('jquery-ui-1.8.13.css') ?>
-
-<?php use_javascript('jquery-1.5.1.js') ?>
 <?php use_javascript('jquery-ui-1.8.13.js') ?>
-<?php use_javascript('unit_transfer.js') ?>
 
 <?php slot('js') ?>
 	<script type="text/javascript">

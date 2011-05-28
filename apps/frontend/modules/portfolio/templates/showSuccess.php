@@ -1,4 +1,6 @@
 <?php slot('title', $portfolio['name']) ?>
+<?php use_javascript('jquery-1.5.1.js') ?>
+<?php use_javascript('unit_transfer.js') ?>
 
 <div id="portfilio_name">Кодовое имя: <?php echo $portfolio['name'] ?></div>
 <?php include_component('preorder', 'unitTransfer', array('id' => $portfolio['id'], 'unit_type' => 'portfolio')) ?>

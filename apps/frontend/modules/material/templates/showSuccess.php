@@ -1,4 +1,6 @@
 <?php slot('title', $material['name']) ?>
+<?php use_javascript('jquery-1.5.1.js') ?>
+<?php use_javascript('unit_transfer.js') ?>
 
 <div id="material_type">
 	Тип материала: <?php echo link_to($material['Type']['name'], 

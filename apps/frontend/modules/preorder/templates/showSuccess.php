@@ -1,4 +1,6 @@
 <?php slot('title', 'Просмотр предзаказа') ?>
+<?php use_javascript('jquery-1.5.1.js') ?>
+<?php use_javascript('unit_transfer.js') ?>
 
 <div><?php echo link_to('Недавно отправленные', 'sended_preorder') ?></div>
 

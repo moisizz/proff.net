@@ -1,4 +1,7 @@
 <?php slot('title', $furniture['name']) ?>
+<?php use_javascript('jquery-1.5.1.js') ?>
+<?php use_javascript('unit_transfer.js') ?>
+
 
 <div id="furniture_type">
   Тип мебели: <?php echo link_to($furniture['Type']['name'],

@@ -1,4 +1,6 @@
 <?php use_stylesheet('portfolio_list.css') ?>
+<?php use_javascript('jquery-1.5.1.js') ?>
+<?php use_javascript('unit_transfer.js') ?>
 
 <div id="portfolio_list">
 	<?php if(count($portfolio_list) != 0): ?>
@@ -22,5 +24,4 @@
   	Пусто
   <?php endif; ?>
 </div>
-
 

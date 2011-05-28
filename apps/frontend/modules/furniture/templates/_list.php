@@ -1,4 +1,6 @@
 <?php use_stylesheet('furniture_list.css') ?>
+<?php use_javascript('jquery-1.5.1.js') ?>
+<?php use_javascript('unit_transfer.js') ?>
 
 <div id="furniture_list">
 	<?php if(count($furniture_list) != 0): ?>
