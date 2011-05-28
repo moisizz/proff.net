@@ -1,8 +1,5 @@
 <?php use_stylesheet('material_list.css') ?> 
 
-<?php use_javascript('jquery-1.5.1.js') ?>
-<?php use_javascript('unit_transfer.js') ?>
-
 <div id="material_list">
   <?php if(count($material_list) != 0): ?>	
     <?php foreach($material_list as $material): ?>

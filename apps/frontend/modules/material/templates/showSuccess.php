@@ -13,5 +13,6 @@
 	<img src="/uploads/material/<?php echo $material['image']; ?>" width="300">
 </div>
 
-Мебель, для которой подойдет этот материал:
-<?php include_partial('furniture/list', array('furniture_list' => $furniture_list)) ?>
+<?php include_partial('information/elementList', 
+                      array('list_types' => array(array('type' => 'furniture',  
+                      																  'list' => $furniture_list)))) ?>

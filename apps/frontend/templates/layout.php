@@ -19,6 +19,8 @@
         echo '.' . $element . ' a { color: black; text-decoration: none; font-weight: bold }';
       ?>
     </style>
+    
+    <?php include_slot('js') ?>
   </head>
   <body>
     <?php echo link_to('Очистить сессию' , 'clear_session') ?>

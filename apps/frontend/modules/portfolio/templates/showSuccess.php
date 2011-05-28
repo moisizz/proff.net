@@ -9,5 +9,6 @@
 	<img src="/uploads/portfolio/<?php echo $portfolio['image']; ?>" width="300">
 </div>
 
-Мебель, изготовленная для этой работы:
-<?php include_partial('furniture/list', array('furniture_list' => $portfolio_furniture_list)) ?>
+<?php include_partial('information/elementList', 
+                      array('list_types' => array(array('type' => 'furniture',  
+                      																	'list' => $portfolio_furniture_list)))) ?>

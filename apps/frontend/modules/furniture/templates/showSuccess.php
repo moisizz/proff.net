@@ -12,8 +12,6 @@
 	<img src="/uploads/furniture/<?php echo $furniture['image']; ?>" width="300">
 </div>
 
-Материалы, подходящие для этой мебели:
-<?php include_partial('material/list',array('material_list' => $furniture_materials)) ?>
-
-Сделанные работы, в которых применялась эта мебель
-<?php include_partial('portfolio/list', array('portfolio_list' => $furniture_portfolio_list)) ?>
+<?php include_partial('information/elementList', 
+                      array('list_types' => array(array('type' => 'material',  'list' => $furniture_materials), 
+                                                  array('type' => 'portfolio', 'list' => $furniture_portfolio_list)))) ?>
