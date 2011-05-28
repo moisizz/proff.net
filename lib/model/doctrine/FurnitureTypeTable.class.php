@@ -29,14 +29,12 @@ class FurnitureTypeTable extends Doctrine_Table
       return $furniture_list;
     }
     
-    public function getTypeFurniture(Doctrine_Query $q)
+    public function getTypeFurnitureQuery($type_id)
     {
-      $alias = $q->getRootAlias();
-      $q->leftJoin($alias . '.Furniture f');
+      $q = Doctrine_Query::create()->select('f.*')
+                                   ->from('Furniture f')
+                                   ->where('f.type_id = ?', $type_id);
         
-      $furniture_list = $q->execute();
-      $q->free();
-      
-      return $furniture_list;
+      return $q;
     }
 }

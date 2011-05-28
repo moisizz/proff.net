@@ -8,7 +8,7 @@
  * @author     Лесникова Екатерина
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class furnitureActions extends sfActions
+class furnitureActions extends myActions
 {
  /**
   * Executes index action
@@ -17,13 +17,24 @@ class furnitureActions extends sfActions
   */
   public function executeTypes(sfWebRequest $request)
   {
-    $this->furniture_types = $this->getRoute()->getObjects();
+    $table = 'FurnitureType';
+    $types_count = sfConfig::get('app_furniture_types_on_page', 10);
+    $types_query = Doctrine::getTable($table)->createQuery('t');
+    $this->pager = $this->getPager($table, $types_query, $types_count, $request->getParameter('page', 1));
+    
+    $this->furniture_types = $this->pager->getResults(Doctrine_Core::HYDRATE_ARRAY);
   }
 
   public function executeType(sfWebRequest $request)
   {
     $this->furniture_type = $this->getRoute()->getObject();
-    $this->furniture_list = $this->furniture_type['Furniture'];
+    $type_id = $this->furniture_type['id'];
+    $furniture_query = FurnitureTypeTable::getInstance()->getTypeFurnitureQuery($type_id);
+    $furniture_count = sfConfig::get('app_furniture_on_type_page', 10);
+    
+    $this->pager = $this->getPager('Furniture', $furniture_query, $furniture_count, $request->getParameter('page', 1));
+    
+    $this->furniture_list = $this->pager->getResults(Doctrine_Core::HYDRATE_ARRAY);
   }
 
   public function executeShow(sfWebRequest $request)

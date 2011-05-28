@@ -1,0 +1,62 @@
+.pager
+{
+  float: left;
+}
+
+.pager a
+{
+  text-decoration: none;
+}
+
+.pager .pages
+{
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-right: 3px;
+  height: 14px;
+  float: left;
+  overflow: hidden;
+}
+
+.pager
+{
+  height: 16px;
+  min-width: 120px;
+  max-width: 210px;
+  height: 20px;
+  font-family: Arial;
+  font-size: 14px;
+  margin-left: 20px
+}
+
+#first_page, #prev_page, #next_page, #last_page
+{
+	margin-top: 2px;
+  height: 16px;
+  width:  16px;
+  float: left;
+}
+
+#first_page
+{
+  background-image: url(/images/first_page.png);
+  margin-right: 10px;
+}
+
+#prev_page
+{
+  margin-right: 10px;
+  background-image: url(/images/prev_page.png);
+}
+
+#next_page
+{
+  background-image: url(/images/next_page.png);
+  margin-left: 10px;
+}
+
+#last_page
+{
+  background-image: url(/images/last_page.png);
+  margin-left: 10px;
+}

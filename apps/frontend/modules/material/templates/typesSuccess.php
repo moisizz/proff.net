@@ -14,3 +14,5 @@
     </div>
   <?php endforeach; ?>
 </div>
+
+<?php include_partial('furniture/pager', array('pager' => $pager)) ?>

@@ -6,14 +6,12 @@ room:
 
 furniture_types: #Все виды мебели
   url:     /furniture/types
-  class:   sfDoctrineRoute
-  options: { model: FurnitureType, type: list }
   param:   { module: furniture, action: types }
 
 furniture_type:  #Конкретный вид мебели
   url:  /furniture/type/:id
   class: sfDoctrineRoute
-  options:  { model: FurnitureType, type: object, method_for_query: getTypeFurniture }
+  options:  { model: FurnitureType, type: object }
   param:    { module: furniture, action: type }
 
 furniture_show:  #Конкретная мебель
@@ -24,14 +22,12 @@ furniture_show:  #Конкретная мебель
 
 material_types: #Все виды материалов
   url:     /material/types
-  class:   sfDoctrineRoute
-  options: { model:  MaterialType, type: list }
   param:   { module: material, action: types }
 
 material_type:  #Конкретный вид материалов
   url:     /material/type/:id
   class:   sfDoctrineRoute
-  options: { model: MaterialType, type: object, method_for_query: getTypeMaterials }
+  options: { model: MaterialType, type: object }
   param:   { module: material , action: type }
 
 material_show:  #Конкретный материал
@@ -42,8 +38,6 @@ material_show:  #Конкретный материал
 
 portfolio:
   url:     /portfolio
-  class:   sfDoctrineRoute
-  options: { model:  Portfolio, type: list }
   param:   { module: portfolio , action: index }
 
 portfolio_show:

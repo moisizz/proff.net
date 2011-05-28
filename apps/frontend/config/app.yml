@@ -1,2 +1,7 @@
-#all:
-#  preorder_send_time_wait: 1800 #в секундах 
+all:
+  #preorder_send_time_wait:     1800 #в секундах
+  #furniture_types_on_page:     10
+  #furniture_on_type_page:      10
+  #material_types_on_page:      10
+  #material_on_type_page:       10
+  #portfolio_on_index_page:     10
