@@ -12,8 +12,7 @@ class preorderActions extends sfActions
 {
   public function executeShow(sfWebRequest $request)
   {
-    if($this->getUser()->hasAddedUnits())
-      $this->getAddedUnits();
+    $this->getAddedUnits();
   }
   
   public function executeShowSended(sfWebRequest $request)
@@ -98,17 +97,17 @@ class preorderActions extends sfActions
     $this->material_list = array();
     $this->portfolio_list = array();
     
-    if(isset($preorder['furniture']) && count($preorder['furniture']) != 0)
+    if(isset($preorder['furniture']) && (count($preorder['furniture']) != 0))
     {
       $this->furniture_list = FurnitureTable::getInstance()->getFurnitureByIds($preorder['furniture']);      
     }
     
-    if(isset($preorder['material']) && count($preorder['material']) != 0)
+    if(isset($preorder['material']) && (count($preorder['material']) != 0))
     {
       $this->material_list = MaterialTable::getInstance()->getMaterialeByIds($preorder['material']);
     }
     
-    if(isset($preorder['portfolio']) && count($preorder['portfolio']) != 0)
+    if(isset($preorder['portfolio']) && (count($preorder['portfolio']) != 0))
     {
       $this->portfolio_list = PortfolioTable::getInstance()->getPortfolioByIds($preorder['portfolio']);
     }

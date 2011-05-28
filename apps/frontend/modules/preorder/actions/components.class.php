@@ -7,6 +7,8 @@ class preorderComponents extends sfComponents
     $user = $this->getUser();
     if($user->hasAddedUnits())
       $this->unit_count = $user->getUnitCount();
+    else
+      $this->unit_count = 0;
   }
   
   public function executeUnitTransfer()

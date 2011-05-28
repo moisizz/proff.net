@@ -12,7 +12,7 @@ default:
     language:     ru
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [main.css, preorder_bar.css]
 
   javascripts:    []
 

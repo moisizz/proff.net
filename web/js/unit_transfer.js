@@ -9,16 +9,23 @@ jQuery(document).ready(function(){
             {
                 link.find('div').removeClass('unit_transfer_loader');
                 link.attr('href', json.new_url);
+
+                count_block = $('#preorder_unit_count').find('.count');
+                elements_count = count_block.html();
+                
                 var message = '';
                 if(json.type == 'added') 
                 {
                     link.find('div').addClass('remove_unit_image');
-                    message = 'Убрать из предзаказа'
+                    message = 'Убрать из предзаказа';
+                    count_block.html(parseInt(elements_count)+1);
+                    
                 }
                 else if(json.type == 'removed')
                 {
                     link.find('div').addClass('add_unit_image');
-                    message = 'В предзаказ'            
+                    message = 'В предзаказ';    
+                    count_block.html(parseInt(elements_count)-1);     
                 }
                 link.find('.message').html(message);
             }
@@ -30,5 +37,4 @@ jQuery(document).ready(function(){
 
         return false;
     });
-    
 });

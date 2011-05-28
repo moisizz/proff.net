@@ -1,12 +1,15 @@
-<?php use_stylesheet('preorder_bar.css') ?>
-
-<?php if($sf_user->hasAddedUnits()): ?>
-  <span id="user_preorder_bar">Элементов в предзаказе: <?php echo $unit_count ?></span><br  />
-  <?php echo link_to('Посмотреть', 'preorder_show') ?> 
-  <?php echo link_to('Отправить нам', 'preorder_send') ?>
-<?php else: ?>
-	Предзаказ пуст
-<?php endif; ?> 
-<?php echo link_to('Отправленные', 'sended_preorder') ?> 
-<?php echo link_to('Что это такое?', 'preorder_help') ?>
+<div id="user_preorder_bar">
+	<div id="preorder_bar_title">
+  	<div>Предзаказ</div>
+    <span class="help"><?php echo link_to('что это такое', 'preorder_help') ?></span>
+	</div><br>
+	<div id="preorder_unit_count">
+  	Добавлено элементов: <span class="count"><?php echo $unit_count ?></span> <?php echo link_to('открыть', 'preorder_show') ?>
+	</div>
+  	<?php echo link_to('Недавно отправленные', 'sended_preorder') ?> 
+</div>
+  
+  
+   
+  
 

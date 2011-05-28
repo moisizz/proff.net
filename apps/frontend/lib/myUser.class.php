@@ -127,7 +127,7 @@ class myUser extends sfBasicSecurityUser
    * 
    * Возвращает номера отправленных недавно предзаказов
    */
-  public function  getSendedPreorders()
+  public function getSendedPreorders()
   {
     if($this->hasAttribute('sended_preorders'))
       return $this->getAttribute('sended_preorders');
