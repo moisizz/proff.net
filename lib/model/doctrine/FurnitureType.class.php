@@ -16,4 +16,13 @@ class FurnitureType extends BaseFurnitureType
   {
     return $this->getName();
   }
+
+  public function delete(Doctrine_Connection $con = null)
+  {
+    $cover = $this->getImage();
+    $file = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'furniture_type' . DIRECTORY_SEPARATOR . $cover;
+    unlink($file);
+    
+    return parent::delete($con);
+  }
 }

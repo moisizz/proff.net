@@ -16,4 +16,17 @@ class Portfolio extends BasePortfolio
   {
     return $this->getName();
   }
+
+  public function delete(Doctrine_Connection $con = null)
+  {
+    $directory = sfConfig::get('sf_upload_dir') . DIRECTORY_SEPARATOR . 'portfolio' . DIRECTORY_SEPARATOR;
+    $image = $this->getImage();
+    $thumbnail = 'thumb_' . $image;
+    $image_file = $directory . $image;
+    $thumbnail_file = $directory . $thumbnail;
+    unlink($image_file);
+    unlink($thumbnail_file);
+    
+    return parent::delete($con);
+  }
 }
