@@ -72,16 +72,17 @@ Furniture:
       notnull: true
     description:
       type:    string(2047)
-      notnull: true
+      notnull: false
     image:
       type:    string(511)
       notnull: false
       default: 'default_furn.png'
   relations:
     Type:
-      class:   FurnitureType
-      local:   type_id
-      foreign: id
+      class:    FurnitureType
+      local:    type_id
+      foreign:  id
+      onDelete: CASCADE
     Material:
       class:    Material
       refClass: FurnitureMaterial
@@ -151,9 +152,10 @@ Material:
       default: 'default_material.png'
   relations:
     Type:
-      class:   MaterialType
-      local:   type_id
-      foreign: id
+      class:    MaterialType
+      local:    type_id
+      foreign:  id
+      onDelete: CASCADE
     Furniture:
       class:    Furniture
       refClass: FurnitureMaterial
@@ -169,8 +171,8 @@ FurniturePortfolio:
       type: integer(4)
       notnull: true
   relations:
-    FurnitureType:
-      class: FurnitureType
+    Furniture:
+      class: Furniture
       local: furniture_id
       foreign: id
       onDelete: CASCADE

@@ -14,31 +14,34 @@
  * @property Doctrine_Collection $Material
  * @property Doctrine_Collection $Portfolio
  * @property Doctrine_Collection $FurnitureMaterial
+ * @property Doctrine_Collection $FurniturePortfolio
  * @property Doctrine_Collection $FurniturePreorder
  * @property Doctrine_Collection $Preorder
  * 
- * @method integer             getId()                Returns the current record's "id" value
- * @method integer             getTypeId()            Returns the current record's "type_id" value
- * @method string              getName()              Returns the current record's "name" value
- * @method string              getDescription()       Returns the current record's "description" value
- * @method string              getImage()             Returns the current record's "image" value
- * @method FurnitureType       getType()              Returns the current record's "Type" value
- * @method Doctrine_Collection getMaterial()          Returns the current record's "Material" collection
- * @method Doctrine_Collection getPortfolio()         Returns the current record's "Portfolio" collection
- * @method Doctrine_Collection getFurnitureMaterial() Returns the current record's "FurnitureMaterial" collection
- * @method Doctrine_Collection getFurniturePreorder() Returns the current record's "FurniturePreorder" collection
- * @method Doctrine_Collection getPreorder()          Returns the current record's "Preorder" collection
- * @method Furniture           setId()                Sets the current record's "id" value
- * @method Furniture           setTypeId()            Sets the current record's "type_id" value
- * @method Furniture           setName()              Sets the current record's "name" value
- * @method Furniture           setDescription()       Sets the current record's "description" value
- * @method Furniture           setImage()             Sets the current record's "image" value
- * @method Furniture           setType()              Sets the current record's "Type" value
- * @method Furniture           setMaterial()          Sets the current record's "Material" collection
- * @method Furniture           setPortfolio()         Sets the current record's "Portfolio" collection
- * @method Furniture           setFurnitureMaterial() Sets the current record's "FurnitureMaterial" collection
- * @method Furniture           setFurniturePreorder() Sets the current record's "FurniturePreorder" collection
- * @method Furniture           setPreorder()          Sets the current record's "Preorder" collection
+ * @method integer             getId()                 Returns the current record's "id" value
+ * @method integer             getTypeId()             Returns the current record's "type_id" value
+ * @method string              getName()               Returns the current record's "name" value
+ * @method string              getDescription()        Returns the current record's "description" value
+ * @method string              getImage()              Returns the current record's "image" value
+ * @method FurnitureType       getType()               Returns the current record's "Type" value
+ * @method Doctrine_Collection getMaterial()           Returns the current record's "Material" collection
+ * @method Doctrine_Collection getPortfolio()          Returns the current record's "Portfolio" collection
+ * @method Doctrine_Collection getFurnitureMaterial()  Returns the current record's "FurnitureMaterial" collection
+ * @method Doctrine_Collection getFurniturePortfolio() Returns the current record's "FurniturePortfolio" collection
+ * @method Doctrine_Collection getFurniturePreorder()  Returns the current record's "FurniturePreorder" collection
+ * @method Doctrine_Collection getPreorder()           Returns the current record's "Preorder" collection
+ * @method Furniture           setId()                 Sets the current record's "id" value
+ * @method Furniture           setTypeId()             Sets the current record's "type_id" value
+ * @method Furniture           setName()               Sets the current record's "name" value
+ * @method Furniture           setDescription()        Sets the current record's "description" value
+ * @method Furniture           setImage()              Sets the current record's "image" value
+ * @method Furniture           setType()               Sets the current record's "Type" value
+ * @method Furniture           setMaterial()           Sets the current record's "Material" collection
+ * @method Furniture           setPortfolio()          Sets the current record's "Portfolio" collection
+ * @method Furniture           setFurnitureMaterial()  Sets the current record's "FurnitureMaterial" collection
+ * @method Furniture           setFurniturePortfolio() Sets the current record's "FurniturePortfolio" collection
+ * @method Furniture           setFurniturePreorder()  Sets the current record's "FurniturePreorder" collection
+ * @method Furniture           setPreorder()           Sets the current record's "Preorder" collection
  * 
  * @package    proff.dev
  * @subpackage model
@@ -68,7 +71,7 @@ abstract class BaseFurniture extends sfDoctrineRecord
              ));
         $this->hasColumn('description', 'string', 2047, array(
              'type' => 'string',
-             'notnull' => true,
+             'notnull' => false,
              'length' => 2047,
              ));
         $this->hasColumn('image', 'string', 511, array(
@@ -84,7 +87,8 @@ abstract class BaseFurniture extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('FurnitureType as Type', array(
              'local' => 'type_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
 
         $this->hasMany('Material', array(
              'refClass' => 'FurnitureMaterial',
@@ -97,6 +101,10 @@ abstract class BaseFurniture extends sfDoctrineRecord
              'foreign' => 'portfolio_id'));
 
         $this->hasMany('FurnitureMaterial', array(
+             'local' => 'id',
+             'foreign' => 'furniture_id'));
+
+        $this->hasMany('FurniturePortfolio', array(
              'local' => 'id',
              'foreign' => 'furniture_id'));
 

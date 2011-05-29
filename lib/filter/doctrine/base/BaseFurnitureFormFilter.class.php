@@ -15,7 +15,7 @@ abstract class BaseFurnitureFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'type_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'add_empty' => true)),
       'name'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
-      'description'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'description'    => new sfWidgetFormFilterInput(),
       'image'          => new sfWidgetFormFilterInput(),
       'material_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Material')),
       'portfolio_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio')),

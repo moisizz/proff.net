@@ -29,7 +29,7 @@ abstract class BaseFurnitureForm extends BaseFormDoctrine
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'type_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Type'))),
       'name'           => new sfValidatorString(array('max_length' => 511)),
-      'description'    => new sfValidatorString(array('max_length' => 2047)),
+      'description'    => new sfValidatorString(array('max_length' => 2047, 'required' => false)),
       'image'          => new sfValidatorString(array('max_length' => 511, 'required' => false)),
       'material_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Material', 'required' => false)),
       'portfolio_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Portfolio', 'required' => false)),

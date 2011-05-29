@@ -13,12 +13,12 @@ abstract class BaseFurniturePortfolioFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'furniture_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FurnitureType'), 'add_empty' => true)),
+      'furniture_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Furniture'), 'add_empty' => true)),
       'portfolio_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Portfolio'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'furniture_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('FurnitureType'), 'column' => 'id')),
+      'furniture_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Furniture'), 'column' => 'id')),
       'portfolio_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Portfolio'), 'column' => 'id')),
     ));
 

@@ -7,17 +7,17 @@
  * 
  * @property integer $furniture_id
  * @property integer $portfolio_id
- * @property FurnitureType $FurnitureType
+ * @property Furniture $Furniture
  * @property Portfolio $Portfolio
  * 
- * @method integer            getFurnitureId()   Returns the current record's "furniture_id" value
- * @method integer            getPortfolioId()   Returns the current record's "portfolio_id" value
- * @method FurnitureType      getFurnitureType() Returns the current record's "FurnitureType" value
- * @method Portfolio          getPortfolio()     Returns the current record's "Portfolio" value
- * @method FurniturePortfolio setFurnitureId()   Sets the current record's "furniture_id" value
- * @method FurniturePortfolio setPortfolioId()   Sets the current record's "portfolio_id" value
- * @method FurniturePortfolio setFurnitureType() Sets the current record's "FurnitureType" value
- * @method FurniturePortfolio setPortfolio()     Sets the current record's "Portfolio" value
+ * @method integer            getFurnitureId()  Returns the current record's "furniture_id" value
+ * @method integer            getPortfolioId()  Returns the current record's "portfolio_id" value
+ * @method Furniture          getFurniture()    Returns the current record's "Furniture" value
+ * @method Portfolio          getPortfolio()    Returns the current record's "Portfolio" value
+ * @method FurniturePortfolio setFurnitureId()  Sets the current record's "furniture_id" value
+ * @method FurniturePortfolio setPortfolioId()  Sets the current record's "portfolio_id" value
+ * @method FurniturePortfolio setFurniture()    Sets the current record's "Furniture" value
+ * @method FurniturePortfolio setPortfolio()    Sets the current record's "Portfolio" value
  * 
  * @package    proff.dev
  * @subpackage model
@@ -44,7 +44,7 @@ abstract class BaseFurniturePortfolio extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('FurnitureType', array(
+        $this->hasOne('Furniture', array(
              'local' => 'furniture_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

@@ -16,13 +16,13 @@ abstract class BaseFurniturePortfolioForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'           => new sfWidgetFormInputHidden(),
-      'furniture_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('FurnitureType'), 'add_empty' => false)),
+      'furniture_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Furniture'), 'add_empty' => false)),
       'portfolio_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Portfolio'), 'add_empty' => false)),
     ));
 
     $this->setValidators(array(
       'id'           => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'furniture_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('FurnitureType'))),
+      'furniture_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Furniture'))),
       'portfolio_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Portfolio'))),
     ));
 

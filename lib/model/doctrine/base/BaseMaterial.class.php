@@ -81,7 +81,8 @@ abstract class BaseMaterial extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('MaterialType as Type', array(
              'local' => 'type_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
 
         $this->hasMany('Furniture', array(
              'refClass' => 'FurnitureMaterial',
