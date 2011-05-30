@@ -21,12 +21,8 @@ class FurnitureTypeForm extends BaseFurnitureTypeForm
     																														'validated_file_class' => 'pfValidatedCover',
                                                                 'required' => false));
   
-    $double_list      = 'sfWidgetFormSelectDoubleList';
-    $renderer_options = array('label_unassociated' => 'Доступные',
-                              'label_associated'   => 'Выбранные');
+    $this->widgetSchema['room_list']->setOption('expanded', true);
     
-    $this->widgetSchema['room_list']->setOption('renderer_class',  $double_list);
-    $this->widgetSchema['room_list']->setOption('renderer_options', $renderer_options);
-    $this->widgetSchema['room_list']->setLabel('Подходит для комнат');  
+    $this->widgetSchema['room_list']->setLabel('Подходит для');  
   }
 }
