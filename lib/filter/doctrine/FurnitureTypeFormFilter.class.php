@@ -12,5 +12,12 @@ class FurnitureTypeFormFilter extends BaseFurnitureTypeFormFilter
 {
   public function configure()
   {
+    $double_list      = 'sfWidgetFormSelectDoubleList';
+    $renderer_options = array('label_unassociated' => 'Доступные',
+                              'label_associated'   => 'Выбранные');
+    
+    $this->widgetSchema['room_list']->setOption('renderer_class',  $double_list);
+    $this->widgetSchema['room_list']->setOption('renderer_options', $renderer_options);
+    $this->widgetSchema['room_list']->setLabel('Подходящие для комнат');
   }
 }
