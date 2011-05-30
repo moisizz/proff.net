@@ -13,9 +13,14 @@ generator:
 
     config:
       actions: ~
-      fields:  ~
-      list:    ~
+      fields:
+        name: { label: 'Название' }
+      list:
+        title:   'Комнаты'
+        display: [=name]
       filter:  ~
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title: 'Редактирование комнаты'
+      new:
+        title: 'Создание комнаты'

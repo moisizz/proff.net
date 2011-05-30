@@ -11,6 +11,14 @@
 class RoomForm extends BaseRoomForm
 {
   public function configure()
-  {
+  {    
+    $double_list      = 'sfWidgetFormSelectDoubleList';
+    $renderer_options = array('label_unassociated' => 'Доступные',
+                              'label_associated'   => 'Выбранные');
+    
+    $this->widgetSchema->setLabels(array('furniture_type_list' => 'Подходящие типы мебели'));
+    
+    $this->widgetSchema['furniture_type_list']->setOption('renderer_class', $double_list);
+    $this->widgetSchema['furniture_type_list']->setOption('renderer_options', $renderer_options);
   }
 }

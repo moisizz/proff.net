@@ -26,6 +26,9 @@
         <li class="portfolio_index">
           <?php echo link_to('Портфолио','portfolio') ?>
         </li>
+        <li class="room_index">
+          <?php echo link_to('Комнаты','room') ?>
+        </li>
         <li class="preorder">
           <?php echo link_to('Предзаказы', 'preorder') ?>
         </li>
