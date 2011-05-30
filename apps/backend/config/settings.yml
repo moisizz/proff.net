@@ -33,3 +33,9 @@ all:
 
     # Enable the database manager
     use_database:           true
+
+    default_culture:        ru_RU
+    i18n: true
+    charset: utf-8
+
+    
