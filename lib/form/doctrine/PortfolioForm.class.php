@@ -13,7 +13,9 @@ class PortfolioForm extends BasePortfolioForm
   public function configure()
   {
     $directory = '/uploads'.DIRECTORY_SEPARATOR.'portfolio'.DIRECTORY_SEPARATOR;
-    $this->widgetSchema['image'] = new sfWidgetFormInputFileEditable(array('file_src' => $directory.'thumb_'.$this->getObject()->getImage(),
+    $object = $this->getObject();
+    $thumbnail = $directory.'thumb_'.$object->getImage();
+    $this->widgetSchema['image'] = new sfWidgetFormInputFileEditable(array('file_src' => $thumbnail,
                                                               						 'is_image' => true,
                                                                            'with_delete' => false));
     
@@ -21,6 +23,10 @@ class PortfolioForm extends BasePortfolioForm
     																														'validated_file_class' => 'pfValidatedThumbnailableImage',
                                                                 'required' => false));
   
+    $image = $directory.DIRECTORY_SEPARATOR.$object->getImage();
+    $image_template = "<a href='$image' target='_blank'><img src='$thumbnail'><br></a>%input%";
+    $this->widgetSchema['image']->setOption('template', $image_template);
+    
     $this->widgetSchema['room_id']->setOption('expanded', true);
     
     $this->widgetSchema->setLabels(array('room_id'        => 'Комната',

@@ -13,7 +13,9 @@ class MaterialForm extends BaseMaterialForm
   public function configure()
   {
     $directory = '/uploads'.DIRECTORY_SEPARATOR.'material'.DIRECTORY_SEPARATOR;
-    $this->widgetSchema['image'] = new sfWidgetFormInputFileEditable(array('file_src' => $directory.'thumb_'.$this->getObject()->getImage(),
+    $object = $this->getObject();
+    $thumbnail = $directory.'thumb_'.$object->getImage();
+    $this->widgetSchema['image'] = new sfWidgetFormInputFileEditable(array('file_src' => $thumbnail,
                                                               						 'is_image' => true,
                                                                            'with_delete' => false));
     
@@ -23,6 +25,10 @@ class MaterialForm extends BaseMaterialForm
   
     $this->widgetSchema->setLabels(array('type_id'        => 'Вид',
 																		 		 'furniture_list'  => 'Подходящая мебель'));
+    
+    $image = $directory.DIRECTORY_SEPARATOR.$object->getImage();
+    $image_template = "<a href='$image' target='_blank'><img src='$thumbnail'><br></a>%input%";
+    $this->widgetSchema['image']->setOption('template', $image_template);
     
     $double_list      = 'sfWidgetFormSelectDoubleList';
     $renderer_options = array('label_unassociated' => 'Доступные',
