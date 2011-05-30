@@ -12,5 +12,6 @@ class MaterialTypeFormFilter extends BaseMaterialTypeFormFilter
 {
   public function configure()
   {
+    $this->widgetSchema['description']->setOption('empty_label', 'пустое');
   }
 }

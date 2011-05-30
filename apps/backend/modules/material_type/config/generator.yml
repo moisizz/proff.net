@@ -12,18 +12,18 @@ generator:
     actions_base_class:    sfActions
 
     config:
-      actions:
-        _new:    { label: "Добавить мебель"}
-        _edit:   { label: 'Редактировать' }
-        _delete: { label: 'Удалить' }
+      actions: ~
       fields:
         name:        { label: 'Название' }
         description: { label: 'Описание' }
         image:       { label: 'Картинка' }
       list:
         title:   'Виды материалов'
-        display: [name, description, image]
-      filter:  ~
+        display: [image,  name, description]
+      filter:
+        display: [name, description]
       form:    ~
-      edit:    ~
-      new:     ~
+      edit:
+        title:  'Редактирование вида материалов'
+      new:
+        title:  'Создание нового типа материалов'
