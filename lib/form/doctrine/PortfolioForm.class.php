@@ -20,5 +20,20 @@ class PortfolioForm extends BasePortfolioForm
     $this->validatorSchema['image'] = new sfValidatorFile(array('path' => sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'portfolio', 
     																														'validated_file_class' => 'pfValidatedThumbnailableImage',
                                                                 'required' => false));
+  
+    $this->widgetSchema['room_id']->setOption('expanded', true);
+    
+    $this->widgetSchema->setLabels(array('room_id'        => 'Комната',
+                                         'date'           => 'Дата выполнения',
+																		 		 'furniture_list' => 'Подходящая мебель'));    
+    
+    $double_list      = 'sfWidgetFormSelectDoubleList';
+    $renderer_options = array('label_unassociated' => 'Доступные',
+                              'label_associated'   => 'Выбранные');    
+    
+    $this->widgetSchema['furniture_list']->setOption('renderer_class', $double_list);
+    $this->widgetSchema['furniture_list']->setOption('renderer_options', $renderer_options);    
+    
+    unset($this->widgetSchema['preorder_list']);  
   }
 }
