@@ -1,29 +1,122 @@
-#main_menu, #user_menu {
-  margin: 0 auto;
-  margin-top: 25px;
-  position: relative;
-  overflow: auto;
-  width: 46%;
+body a {
+  font-family: 'Trebuchet MS';
+  color: #9e3929;
 }
 
-#user_menu {
+body a:hover {
+  color: #f2573f;
+}
+
+#wrapper {
+  position: relative;
+  overflow: auto;
+  width: 860px;
+  margin: 0 auto;
+}
+
+#left_sidebar, #content {
+  float: left;
+}
+
+#left_sidebar > div {
   margin-bottom: 25px;
 }
 
-#main_menu ul, #user_menu ul {
-  list-style: none outside none;
-  overflow: auto;
-  margin: 0;
-  padding: 0;
-}
-
-#main_menu li, #user_menu li {
-  list-style: none outside none;
-  float: left;
-  margin-right: 10px;
-}
-
 #content {
-  width: 80%;
-  margin: 0 auto;
+	margin-left: 25px;
+  min-width: 600px;
+}
+
+ul#navmenu-v,
+ul#navmenu-v li,
+ul#navmenu-v ul {
+  margin: 0;
+  border: 0 none;
+  padding: 0;
+  width: 160px; 
+  list-style: none;
+}
+
+ul#navmenu-v:after {
+  clear: both;
+  display: block;
+  font: 1px/0px serif;
+  content: ".";
+  height: 0;
+  visibility: hidden;
+}
+
+ul#navmenu-v li {
+  float: left; 
+  display: block !important; 
+  display: inline; 
+  position: relative;
+  border:#4c1b14 1px solid;
+}
+ul#navmenu-v li ul li {
+border:none;
+border-bottom: #777777 1px solid;
+}
+
+/* Root Menu */
+ul#navmenu-v a {
+  padding: 0 6px;
+  display: block;
+  background: #4c1b14;
+  color: #FFFFFF;
+  font: bold 12px/28px Verdana, Arial;
+  text-decoration: none;
+  height: auto !important;
+  height: 1%; 
+}
+
+ul#navmenu-v a:hover,
+ul#navmenu-v li:hover a,
+ul#navmenu-v li.iehover a {
+  background: #FFFFFF;
+  color: black;
+
+}
+
+/* 2nd Menu */
+ul#navmenu-v li:hover li a,
+ul#navmenu-v li.iehover li a {
+  background: #4c1b14;
+  color: #FFFFFF;
+  border:#4c1b14 1px solid;
+}
+
+ul#navmenu-v li:hover li a:hover,
+ul#navmenu-v li:hover li:hover a,
+ul#navmenu-v li.iehover li a:hover,
+ul#navmenu-v li.iehover li.iehover a {
+  background: #FFFFFF;
+  color: #4c1b14;
+  border:#4c1b14 1px solid;
+}
+
+ul#navmenu-v ul,
+ul#navmenu-v ul ul,
+ul#navmenu-v ul ul ul {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 161px;
+  z-index: 1;
+}
+
+ul#navmenu-v li:hover ul ul,
+ul#navmenu-v li:hover ul ul ul,
+ul#navmenu-v li.iehover ul ul,
+ul#navmenu-v li.iehover ul ul ul {
+  display: none;
+}
+
+ul#navmenu-v li:hover ul,
+ul#navmenu-v ul li:hover ul,
+ul#navmenu-v ul ul li:hover ul,
+ul#navmenu-v li.iehover ul,
+ul#navmenu-v ul li.iehover ul,
+ul#navmenu-v ul ul li.iehover ul {
+  display: block;
 }

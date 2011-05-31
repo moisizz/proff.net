@@ -16,7 +16,7 @@
     <style type="text/css">
       <?php 
         $element = $sf_request->getParameter('module') . '_' . $sf_request->getParameter('action');
-        echo '.' . $element . ' a { color: black; text-decoration: none; font-weight: bold }';
+        echo "#menu_$element > a { background: #a13a2a !important; }";
       ?>
     </style>
     
@@ -24,35 +24,19 @@
   </head>
   <body>
     <?php echo link_to('Очистить сессию' , 'clear_session') ?>
-    <div id="main_menu">
-      <ul>
-        <li class="room_index">
-          <?php echo link_to('Комнаты','homepage') ?>
-        </li>
-        <li class="furniture_types">
-          <?php echo link_to('Мебель','furniture_types') ?>
-        </li>
-        <li class="material_types">
-          <?php echo link_to('Материалы','material_types') ?>
-        </li>
-        <li class="portfolio_index">
-          <?php echo link_to('Портфолио','portfolio') ?>
-        </li>
-        <li class="information_about">
-          <?php echo link_to('О фирме', 'about') ?>
-        </li>
-        <li class="information_contacts">
-          <?php echo link_to('Контакты', 'contacts') ?>
-        </li>
-      </ul>
-    </div>
 
-		<div id="user_menu">
-		  <?php include_component('preorder', 'preorderBar') ?>
+		<div id="wrapper">
+			<div id="left_sidebar">
+				<div id="main_menu">
+          <?php include_component('information', 'mainMenu')?>
+        </div>
+			
+				<?php include_component('preorder', 'preorderBar') ?>
+			</div>
+      
+      <div id="content">
+        <?php echo $sf_content ?>
+      </div>
 		</div>
-
-    <div id="content">
-      <?php echo $sf_content ?>
-    </div>
   </body>
 </html>

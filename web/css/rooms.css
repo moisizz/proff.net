@@ -1,9 +1,6 @@
 #appartment {
   position: relative;
   overflow: auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 465px;
 }
 
 .room_name {
