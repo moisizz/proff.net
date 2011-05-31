@@ -12,7 +12,10 @@
 <div id="furniture_description">Описание: <?php echo $furniture['description'] ?></div>
 <div id="furniture_image">
 	Картинка: <br />
-	<img src="/uploads/furniture/<?php echo $furniture['image']; ?>" width="300">
+	<?php $image_path = '/uploads/furniture/'; ?>
+	<a href="<?php echo $image_path . $furniture['image']; ?>" target="_blank">
+  	<?php echo image_tag($image_path . 'thumb_' . $furniture['image']); ?>
+	</a>
 </div>
 
 <?php include_partial('information/elementList', 

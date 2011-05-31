@@ -1,6 +1,6 @@
 <?php slot('title', $room['name']) ?>
 
-Список типов мебели для этой комнаты
+Типы мебели подходящие для этой комнаты:
 <?php include_partial('furniture/types', array('furniture_type_list' => $room_furniture_type_list)) ?>
 
 Список сделанных работ для этой комнаты:

@@ -12,7 +12,10 @@
 <div id="material_description">Описание: <?php echo $material['description'] ?></div>
 <div id="material_image">
 	Картинка:<br />
-	<img src="/uploads/material/<?php echo $material['image']; ?>" width="300">
+	<?php $image_path = '/uploads/material/' ?>
+	<a href="<?php echo $image_path . $material['image'] ?>" target="_blank">
+		<?php echo image_tag($image_path . 'thumb_' . $material['image']) ?>
+	</a>
 </div>
 
 <?php include_partial('information/elementList', 

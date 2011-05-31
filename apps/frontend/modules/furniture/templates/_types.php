@@ -5,7 +5,8 @@
     <?php foreach($furniture_type_list as $furniture_type): ?>
       <div class="furniture_type">
       	<div class="furniture_type_image">
-        	<?php echo image_tag('/uploads/furniture_type/'.$furniture_type['image'], array('width' => '100')) ?>
+      		<?php $img_src = '/uploads/furniture_type/'.$furniture_type['image']; ?>
+        	<?php echo image_tag($img_src) ?>
       	</div>
       	<div class="furniture_type_name">
           <?php echo link_to($furniture_type['name'], 'furniture_type', array('id' => $furniture_type['id'])) ?>

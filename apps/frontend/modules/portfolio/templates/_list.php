@@ -7,7 +7,10 @@
   	<?php foreach($portfolio_list as $portfolio): ?>
 			<div class="portfolio">
 				<div class="portfolio_image">
-  				<?php echo image_tag('/uploads/portfolio/'.$portfolio['image'], array('width' => '200')) ?>
+					<?php $img_path = '/uploads/portfolio/'; ?>
+					<a href="<?php echo $img_path . $portfolio['image'] ?>" target="_blank">
+    				<?php echo image_tag($img_path . 'thumb_' . $portfolio['image']); ?>
+					</a>
 				</div>
 		    <div class="portfolio_inf">
   				<div class="portfolio_name">

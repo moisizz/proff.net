@@ -7,7 +7,10 @@
     <?php foreach($material_list as $material): ?>
 			<div class="material">
 				<div class="material_image">
-  				<?php echo image_tag('/uploads/material/'.$material['image'], array('width' => '100')) ?>
+					<?php $img_path = '/uploads/material/'; ?>
+					<a href="<?php echo $img_path . $material['image'] ?>" target="_blank">
+  				  <?php echo image_tag($img_path . 'thumb_' . $material['image']); ?>
+					</a>
 				</div>
 		    <div class="material_inf">
   				<div class="material_name">

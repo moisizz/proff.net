@@ -20,6 +20,11 @@
   font-size: 20pt;
 }
 
+.material_image {
+  min-width:  100px;
+  text-align: center;
+}
+
 .material_description {
   font-size: 12pt;
   color: #555555;

@@ -10,8 +10,13 @@
 
 .portfolio > div {
 }
-  
+
+.portfolio_image, .portfolio_inf {
+	float: left;
+}
+
 .portfolio_inf {
+	margin-left: 25px;
 }
 
 .portfolio_name {

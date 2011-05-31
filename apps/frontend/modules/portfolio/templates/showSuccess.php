@@ -8,7 +8,10 @@
 <div id="portfolio_description">Описание: <?php echo $portfolio['description'] ?></div>
 <div id="portfolio_image">
 	Картинка:<br />
-	<img src="/uploads/portfolio/<?php echo $portfolio['image']; ?>" width="300">
+	<?php $img_path = '/uploads/portfolio/'; ?>
+	<a href="<?php echo $img_path . $portfolio['image'] ?>" target="_blank">
+		<?php echo image_tag($img_path . 'thumb_' . $portfolio['image']); ?>
+	</a>
 </div>
 
 <?php include_partial('information/elementList', 

@@ -19,3 +19,8 @@
 .furniture_name {
   font-size: 20pt;
 }
+
+.furniture_image {
+  text-align: center;
+  min-width: 100px;
+}

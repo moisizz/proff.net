@@ -7,7 +7,10 @@
 		<?php foreach($furniture_list as $furniture): ?>
 			<div class="furniture">
 				<div class="furniture_image">
-  				<?php echo image_tag('/uploads/furniture/'.$furniture['image'], array('width' => '100')) ?>
+					<?php $img_path = '/uploads/furniture/' ?>
+					<a href="<?php echo $img_path . $furniture['image'] ?>" target="_blank">
+    				<?php echo image_tag($img_path . 'thumb_' . $furniture['image']) ?>
+					</a>
 				</div>
 		    <div class="furniture_inf">
   				<span class="furniture_name">
