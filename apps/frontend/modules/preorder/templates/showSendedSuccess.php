@@ -1,5 +1,5 @@
 <?php if ($preorder_list !== false): ?>
-  Недавно отправленные предзаказы
+  Недавно отправленные черновики
   <table cellpadding="5">
   	<tr><td><b>Номер</b></td><td><b>Дата</b></td></tr>
     <?php foreach($preorder_list as $preorder): ?>
@@ -10,5 +10,5 @@
     <?php endforeach; ?>
   </table>
 <?php else: ?>
-	Нет
+	Вы еще не отправляли нам черновиков. За подробностями обратитесь к разделу <?php echo link_to('справка', 'preorder_help') ?>
 <?php endif; ?>

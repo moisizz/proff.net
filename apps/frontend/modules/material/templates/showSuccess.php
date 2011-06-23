@@ -1,4 +1,4 @@
-<?php slot('title', $material['name']) ?>
+<?php slot('title', $material['Type']['name'] . ' \ ' . $material['name']) ?>
 <?php use_javascript('jquery-1.5.1.js') ?>
 <?php use_javascript('unit_transfer.js') ?>
 
@@ -8,17 +8,28 @@
   <div class="element_labels">
   	<div>Тип материала:</div>
   	<div>Название:</div>
+  	<div>Цена за <?php echo $material['QuantityUnit']['name'] ?>:</div>
   	<div>Описание:</div>
   	<div>Картинка:</div>
   </div>
   
   <div class="element_values">
     <div>
-      <?php echo link_to($material['Type']['name'], 'material_type', array('id' => $material['type_id']))?>	
+      <?php echo link_to($material['Type']['name'], 
+                         'material_type', 
+                         array('id' => $material['type_id']))?>	
     </div>
     
     <div>
     	<?php echo $material['name'] ?>
+    </div>
+    
+    <div class="price_value">
+    	<?php if($material['price']): ?>
+    	  <?php echo $material['price'] ?> руб.
+    	<?php else: ?>
+    		пока не указана
+    	<?php endif; ?>
     </div>
     
     <div>
@@ -38,11 +49,16 @@
     
     <br>
     
-    <div><?php include_component('preorder', 'unitTransfer', array('id' => $material['id'], 'unit_type' => 'material')) ?></div>
+    <div><?php include_component('preorder', 
+    														 'unitTransfer', 
+                                 array('id' => $material['id'], 
+                                 			 'unit_type' => 'material')) ?></div>
   </div>
 </div>
 
+<?php if (count($furniture_list) != 0): ?>
+  <?php include_partial('information/elementList', 
+                        array('list_types' => array(array('type' => 'furniture',  
+                        																  'list' => $furniture_list)))) ?>
+<?php endif; ?>
 
-<?php include_partial('information/elementList', 
-                      array('list_types' => array(array('type' => 'furniture',  
-                      																  'list' => $furniture_list)))) ?>

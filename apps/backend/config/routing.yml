@@ -1,3 +1,12 @@
+quantity_unit:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                QuantityUnit
+    module:               quantity_unit
+    prefix_path:          /quantity_unit
+    column:               id
+    with_wildcard_routes: true
+
 room:
   class: sfDoctrineRouteCollection
   options:
@@ -15,6 +24,12 @@ preorder:
     prefix_path:          /preorder
     column:               id
     with_wildcard_routes: true
+
+preorder_show:
+  url: /prorder/:id
+  class: sfDoctrineRoute
+  options: { model: Preorder, type: object, method_for_query: getFullPreorder }
+  params:  { module: preorder, action: ListShow }
 
 portfolio:
   class: sfDoctrineRouteCollection
@@ -61,10 +76,10 @@ furniture:
     column:               id
     with_wildcard_routes: true
 
-# You can find more information about this file on the symfony website:
-# http://www.symfony-project.org/reference/1_4/en/10-Routing
+logout:
+  url:    /signout
+  params: { module: sfGuardAuth, action: signout }
 
-# default rules
 homepage:
   url:   /
   param: { module: furniture, action: index }

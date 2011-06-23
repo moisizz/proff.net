@@ -1,3 +1,9 @@
+QuantityUnit:
+  meters:
+    name:  'кв. метр'
+  liters:
+    name:  'литр'
+
 MaterialType:
   painting:
     name:        'Покраска'
@@ -46,32 +52,40 @@ Material:
 <?php for($i = 1; $i <= 4; $i++): ?>
   painting_<?php echo $i ?>:
     Type:         painting
+    QuantityUnit: liters
     name:         <?php echo 'Покраска вида ' . $i . "\n" ?>
     image:        <?php echo 'painting_' . $i . '.jpg' . "\n" ?>
+    price:        <?php echo rand(100, 30000) . "\n" ?>
     description:  'Описание покрасочного материала...'
 <?php endfor; ?>
 
 <?php for($i = 1; $i <= 3; $i++): ?>
   fabric_<?php echo $i ?>:
     Type:         fabric
+    QuantityUnit: meters
     name:         <?php echo 'Ткань вида ' . $i . "\n" ?>
     image:        <?php echo 'fabric_' . $i . '.jpg' . "\n" ?>
+    price:        <?php echo rand(100, 30000) . "\n" ?>
     description:  'Описание ткани...'
 <?php endfor; ?>
 
 <?php for($i = 1; $i <= 2; $i++): ?>
   glass_<?php echo $i ?>:
     Type:         glass
+    QuantityUnit: meters
     name:         <?php echo 'Стекло вида ' . $i . "\n" ?>
     image:        <?php echo 'glass_' . $i . '.jpg' . "\n" ?>
+    price:        <?php echo rand(100, 30000) . "\n" ?>
     description:  'Описание стекла...'
 <?php endfor; ?>
 
 <?php for($i = 1; $i <= 3; $i++): ?>
   wood_<?php echo $i ?>:
     Type:         wood
+    QuantityUnit: meters
     name:         <?php echo 'Древесина вида ' . $i . "\n" ?>
     image:        <?php echo 'wood_' . $i . '.jpg' . "\n" ?>
+    price:        <?php echo rand(100, 30000) . "\n" ?>
     description:  'Описание древесины материала...'
 <?php endfor; ?>
     
@@ -79,38 +93,45 @@ Furniture:
   portfolio_chair_1:
     Type:      chairs
     name:      'Кухонный стул'   
-    image:     'portfolio_chair_1.png'   
+    image:     'portfolio_chair_1.png'
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [wood_1, wood_2]
   portfolio_table_1:
     Type:      tables
     name:      'Обеденный стол'   
     image:     'portfolio_table_1.png'   
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [wood_2, wood_3]
   portfolio_chair_2:
     Type:      chairs
     name:      'Стул для гостиной'   
     image:     'portfolio_chair_2.png'   
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [wood_1, wood_3, fabric_1, fabric_2, fabric_3]
   portfolio_table_2:
     Type:      tables
     name:      'Стол для гостиной'
-    image:     'portfolio_table_2.png'   
+    image:     'portfolio_table_2.png'
+    price:     <?php echo rand(100, 30000) . "\n" ?>   
     Material:  [wood_1]
   portfolio_table_3:
     Type:      tables
     name:      'Письменный стол'   
-    image:     'portfolio_table_3.png'   
+    image:     'portfolio_table_3.png'
+    price:     <?php echo rand(100, 30000) . "\n" ?>   
     Material:  [wood_2, wood_3]
   portfolio_cabinet_3:
     Type:      cabinets
     name:      'Шкаф для кабинета'   
-    image:     'portfolio_cabinet_3.png'   
+    image:     'portfolio_cabinet_3.png'
+    price:     <?php echo rand(100, 30000) . "\n" ?>   
     Material:  [wood_1, wood_2, wood_3] 
 <?php for($i = 1; $i <= 4; ++$i): ?>
   armchair_<?php echo $i; ?>:
     Type:      armchairs
     name:      <?php echo 'Кресло '.$i."\n" ?>
     image:     <?php echo 'armchair_'.$i.'.jpg'."\n" ?>
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [fabric_1, fabric_2, fabric_3]
 <?php endfor; ?>
 
@@ -119,6 +140,7 @@ Furniture:
     Type:      beds
     name:      <?php echo 'Кровать '.$i."\n" ?>
     image:     <?php echo 'bed_'.$i.'.jpg'."\n" ?>
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [fabric_1, fabric_2, fabric_3, wood_1, wood_3]
 <?php endfor; ?>
 
@@ -127,6 +149,7 @@ Furniture:
     Type:      cabinets
     name:      <?php echo 'Шкаф '.$i."\n" ?>
     image:     <?php echo 'cabinet_'.$i.'.jpg'."\n" ?>
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [wood_2, wood_3]
 <?php endfor; ?>
 
@@ -135,6 +158,7 @@ Furniture:
     Type:      chairs
     name:      <?php echo 'Стул '.$i."\n" ?>
     image:     <?php echo 'chair_'.$i.'.jpg'."\n" ?>
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [fabric_1, fabric_2]
 <?php endfor; ?>
 
@@ -143,6 +167,7 @@ Furniture:
     Type:      tables
     name:      <?php echo 'Стол '.$i."\n" ?>
     image:     <?php echo 'table_'.$i.'.jpg'."\n" ?>
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [wood_2, wood_3]
 <?php endfor; ?>
 
@@ -151,5 +176,6 @@ Furniture:
     Type:      sofas
     name:      <?php echo 'Диван '.$i."\n" ?>
     image:     <?php echo 'sofa_'.$i.'.jpg'."\n" ?>
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     Material:  [wood_2, wood_3]
 <?php endfor; ?>

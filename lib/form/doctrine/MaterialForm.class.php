@@ -20,11 +20,11 @@ class MaterialForm extends BaseMaterialForm
                                                                            'with_delete' => false));
     
     $this->validatorSchema['image'] = new sfValidatorFile(array('path' => sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'material', 
-    																														'validated_file_class' => 'pfValidatedThumbnailableImage',
+    															'validated_file_class' => 'pfValidatedThumbnailableImage',
                                                                 'required' => false));
   
     $this->widgetSchema->setLabels(array('type_id'        => 'Вид',
-																		 		 'furniture_list'  => 'Подходящая мебель'));
+									     'furniture_list'  => 'Подходящая мебель'));
     
     $image = $directory.DIRECTORY_SEPARATOR.$object->getImage();
     $image_template = "<a href='$image' target='_blank'><img src='$thumbnail'><br></a>%input%";
@@ -36,6 +36,10 @@ class MaterialForm extends BaseMaterialForm
     
     $this->widgetSchema['furniture_list']->setOption('renderer_class', $double_list);
     $this->widgetSchema['furniture_list']->setOption('renderer_options', $renderer_options);    
+    
+    $this->widgetSchema['quantity_id'] = new sfWidgetFormDoctrineChoice(array('multiple' => false, 'model' => 'QuantityUnit'));
+    $this->widgetSchema['quantity_id']->setLabel('Ед. измерения');
+    $this->widgetSchema['quantity_id']->setOption('expanded', true);
     
     unset($this->widgetSchema['preorder_list']);
   }

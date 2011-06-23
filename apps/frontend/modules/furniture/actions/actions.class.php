@@ -20,7 +20,10 @@ class furnitureActions extends myActions
     $table = 'FurnitureType';
     $types_count = sfConfig::get('app_furniture_types_on_page', 10);
     $types_query = Doctrine::getTable($table)->createQuery('t');
-    $this->pager = $this->getPager($table, $types_query, $types_count, $request->getParameter('page', 1));
+    $this->pager = $this->getPager($table, 
+                                   $types_query, 
+                                   $types_count, 
+                                   $request->getParameter('page', 1));
     
     $this->furniture_types = $this->pager->getResults(Doctrine_Core::HYDRATE_ARRAY);
   }
@@ -32,7 +35,10 @@ class furnitureActions extends myActions
     $furniture_query = FurnitureTypeTable::getInstance()->getTypeFurnitureQuery($type_id);
     $furniture_count = sfConfig::get('app_furniture_on_type_page', 10);
     
-    $this->pager = $this->getPager('Furniture', $furniture_query, $furniture_count, $request->getParameter('page', 1));
+    $this->pager = $this->getPager('Furniture', 
+                                   $furniture_query, 
+                                   $furniture_count, 
+                                   $request->getParameter('page', 1));
     
     $this->furniture_list = $this->pager->getResults(Doctrine_Core::HYDRATE_ARRAY);
   }

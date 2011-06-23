@@ -14,9 +14,22 @@
 				</div>
 		    <div class="furniture_inf">
   				<span class="furniture_name">
-  				  <?php echo link_to($furniture['name'], 'furniture_show', array('id' => $furniture['id'])) ?><br />
+  				  <?php echo link_to($furniture['name'], 
+  				  									 'furniture_show', 
+  				                     array('id' => $furniture['id'])) ?>
   				</span>
-		      <?php include_component('preorder', 'unitTransfer', array('id' => $furniture['id'], 'unit_type' => 'furniture')) ?>
+  				
+  				<span class="furniture_price"><?php echo $furniture['price'] ?> руб.</span>
+  				
+  				<br />
+		      
+  				  <?php include_component('preorder', 
+  				  												'unitTransfer', 
+  				                          array('id' => $furniture['id'], 'unit_type' => 'furniture')) ?>
+		    </div>
+		    
+		    <div class="furniture_description">
+		    	<?php echo $furniture['description'] ?>
 		    </div>
 			</div>
 	    <?php endforeach; ?>

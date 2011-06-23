@@ -20,6 +20,7 @@ class FurnitureFormFilter extends BaseFurnitureFormFilter
                                          'portfolio_list' => 'По использованию в наших работах'));
     
     $this->widgetSchema['description']->setOption('empty_label', 'пустое');
+    $this->widgetSchema['price']->setOption('empty_label', 'пустая');
     
     $double_list      = 'sfWidgetFormSelectDoubleList';
     $renderer_options = array('label_unassociated' => 'Доступные',

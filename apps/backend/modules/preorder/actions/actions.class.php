@@ -13,4 +13,8 @@ require_once dirname(__FILE__).'/../lib/preorderGeneratorHelper.class.php';
  */
 class preorderActions extends autoPreorderActions
 {
+	public function executeListShow(sfWebRequest $request)
+	{
+        $this->preorder = $this->getRoute()->getObject();
+	}
 }

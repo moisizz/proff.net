@@ -16,13 +16,14 @@ generator:
       fields:
         Room:        { label: 'Комната' }   
         name:        { label: 'Кодовое название' }
+        price:       { label: 'Цена'}
         description: { label: 'Описание' }
         image:       { label: 'Фотография' }  
       list:
         title:    'Портфолио'
-        display:  [Room, image, name, description]
+        display:  [Room, image, name, price, description]
       filter:
-        display:  [room_id, name, description, date, furniture_list]
+        display:  [room_id, name, price, description, date, furniture_list]
       form:    ~
       edit:
         title:  'Редактировать сделанную работу'

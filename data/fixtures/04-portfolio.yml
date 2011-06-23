@@ -3,17 +3,20 @@ Portfolio:
     Room:      kitchen
     name:      'Кухонный интерьер'
     image:     'portfolio_1.jpg'
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     date:      <?php echo time() . "\n" ?>
     Furniture: [portfolio_chair_1, portfolio_table_1]
   portfolio_2:
     Room:      living_room
     name:      'Интерьер гостиной'
     image:     'portfolio_2.jpg'
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     date:      <?php echo time() . "\n" ?>
     Furniture: [portfolio_chair_2, portfolio_table_2]
   portfolio_3:
     Room:      bedroom
     name:      'Рабочее место'
     image:     'portfolio_3.jpg'
+    price:     <?php echo rand(100, 30000) . "\n" ?>
     date:      <?php echo time() . "\n" ?>
     Furniture: [portfolio_cabinet_3, portfolio_table_3]

@@ -17,14 +17,14 @@ jQuery(document).ready(function(){
                 if(json.type == 'added') 
                 {
                     link.find('div').addClass('remove_unit_image');
-                    message = 'Убрать из предзаказа';
+                    message = 'Убрать';
                     count_block.html(parseInt(elements_count)+1);
                     
                 }
                 else if(json.type == 'removed')
                 {
                     link.find('div').addClass('add_unit_image');
-                    message = 'В предзаказ';    
+                    message = 'В черновик';    
                     count_block.html(parseInt(elements_count)-1);     
                 }
                 link.find('.message').html(message);

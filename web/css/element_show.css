@@ -8,6 +8,7 @@
 
 .element_values {
   margin-left: 15px;
+  color: #333333;
 }
 
 .element_information {
@@ -16,3 +17,11 @@
   margin-bottom: 5px;
 }
 
+.element_labels > div {
+  color: #9E5F55;
+  font-weight: bold;
+}
+
+.price_value {
+	color: green;
+}

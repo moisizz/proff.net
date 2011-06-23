@@ -9,6 +9,7 @@
  * @property integer $room_id
  * @property string $name
  * @property string $description
+ * @property float $price
  * @property string $image
  * @property date $date
  * @property Room $Room
@@ -21,6 +22,7 @@
  * @method integer             getRoomId()             Returns the current record's "room_id" value
  * @method string              getName()               Returns the current record's "name" value
  * @method string              getDescription()        Returns the current record's "description" value
+ * @method float               getPrice()              Returns the current record's "price" value
  * @method string              getImage()              Returns the current record's "image" value
  * @method date                getDate()               Returns the current record's "date" value
  * @method Room                getRoom()               Returns the current record's "Room" value
@@ -32,6 +34,7 @@
  * @method Portfolio           setRoomId()             Sets the current record's "room_id" value
  * @method Portfolio           setName()               Sets the current record's "name" value
  * @method Portfolio           setDescription()        Sets the current record's "description" value
+ * @method Portfolio           setPrice()              Sets the current record's "price" value
  * @method Portfolio           setImage()              Sets the current record's "image" value
  * @method Portfolio           setDate()               Sets the current record's "date" value
  * @method Portfolio           setRoom()               Sets the current record's "Room" value
@@ -70,6 +73,10 @@ abstract class BasePortfolio extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => false,
              'length' => 2047,
+             ));
+        $this->hasColumn('price', 'float', null, array(
+             'type' => 'float',
+             'notnull' => false,
              ));
         $this->hasColumn('image', 'string', 511, array(
              'type' => 'string',

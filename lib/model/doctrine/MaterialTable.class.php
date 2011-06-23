@@ -21,7 +21,8 @@ class MaterialTable extends Doctrine_Table
     {
       $alias = $q->getRootAlias();
       $q->leftJoin($alias.'.Type t')
-        ->leftJoin($alias.'.Furniture f');
+        ->leftJoin($alias.'.Furniture f')
+        ->leftJoin($alias.'.QuantityUnit qu');
       $material = $q->fetchOne();
       $q->free();
       

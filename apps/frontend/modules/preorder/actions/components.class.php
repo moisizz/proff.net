@@ -15,10 +15,10 @@ class preorderComponents extends sfComponents
   {
     if($this->getUser()->hasUnit($this->id, $this->unit_type)):
       $this->transfer_type = 'remove_unit';
-      $this->message = 'Убрать из предзаказа';
+      $this->message = 'Убрать';
     else:
       $this->transfer_type = 'add_unit';
-      $this->message = 'В предзаказ';
+      $this->message = 'В черновик';
     endif;
   }
 }

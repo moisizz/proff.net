@@ -20,7 +20,16 @@
   font-size: 20pt;
 }
 
+.furniture_price {
+  color: green;
+  margin-left: 20px;
+}
+
 .furniture_image {
   text-align: center;
   min-width: 100px;
+}
+
+.unit_transfer_block {
+  margin-top: 10px;
 }

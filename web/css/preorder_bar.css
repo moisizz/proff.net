@@ -1,5 +1,7 @@
 #user_preorder_bar{
+	height: 50px;
+	padding-left: 55px;
   font-size: 10pt;
   font-family: 'Trebuchet MS';
+  background: url(/images/draft.png) no-repeat;
 }
-	

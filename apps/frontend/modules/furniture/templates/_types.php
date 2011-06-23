@@ -9,7 +9,9 @@
         	<?php echo image_tag($img_src) ?>
       	</div>
       	<div class="furniture_type_name">
-          <?php echo link_to($furniture_type['name'], 'furniture_type', array('id' => $furniture_type['id'])) ?>
+          <?php echo link_to($furniture_type['name'], 
+          									 'furniture_type', 
+                             array('id' => $furniture_type['id'])) ?>
       	</div>
       </div>
     <?php endforeach; ?>

@@ -14,12 +14,17 @@
 				</div>
 		    <div class="material_inf">
   				<div class="material_name">
-  				  <?php echo link_to($material['name'], 'material_show', array('id' => $material['id'])) ?><br />
+  				  <?php echo link_to($material['name'], 
+  				  									 'material_show', 
+  				                     array('id' => $material['id'])) ?><br />
   				</div>
   				<div class="material_description">
   					<?php echo $material['description'] ?>
   				</div>
-		      <?php include_component('preorder', 'unitTransfer', array('id' => $material['id'], 'unit_type' => 'material')) ?>
+		      <?php include_component('preorder', 
+		      												'unitTransfer', 
+		                              array('id' => $material['id'], 
+		                              			'unit_type' => 'material')) ?>
 		    </div>
 			</div>
   	<?php endforeach; ?>

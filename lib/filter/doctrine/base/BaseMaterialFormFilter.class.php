@@ -14,8 +14,10 @@ abstract class BaseMaterialFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'type_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'add_empty' => true)),
+      'quantity_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('QuantityUnit'), 'add_empty' => true)),
       'name'           => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'    => new sfWidgetFormFilterInput(),
+      'price'          => new sfWidgetFormFilterInput(),
       'image'          => new sfWidgetFormFilterInput(),
       'furniture_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Furniture')),
       'preorder_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Preorder')),
@@ -23,8 +25,10 @@ abstract class BaseMaterialFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'type_id'        => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Type'), 'column' => 'id')),
+      'quantity_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('QuantityUnit'), 'column' => 'id')),
       'name'           => new sfValidatorPass(array('required' => false)),
       'description'    => new sfValidatorPass(array('required' => false)),
+      'price'          => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
       'image'          => new sfValidatorPass(array('required' => false)),
       'furniture_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Furniture', 'required' => false)),
       'preorder_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Preorder', 'required' => false)),
@@ -85,8 +89,10 @@ abstract class BaseMaterialFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'             => 'Number',
       'type_id'        => 'ForeignKey',
+      'quantity_id'    => 'ForeignKey',
       'name'           => 'Text',
       'description'    => 'Text',
+      'price'          => 'Number',
       'image'          => 'Text',
       'furniture_list' => 'ManyKey',
       'preorder_list'  => 'ManyKey',

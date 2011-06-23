@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="ru" datatype="plaintext" original="messages" date="2011-06-16T12:04:52Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="5" approved="yes">
+        <source>Signin</source>
+        <target>Вход</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>Forgot your password?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>Want to register?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Oops! The page you asked for is secure and you do not have proper credentials.</source>
+        <target>Вы не имеете достаточно прав для просмотра этой страницы</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Login below to gain access</source>
+        <target>Авторизуйтесь чтобы получить доступ</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -7,18 +7,21 @@ Room:
     id:     2
     name:   'Спальная'
   
-  kitchen:
+  childroom:
     id:     3
-    name:   'Кухня'
-  
+    name:   'Детская'
+
   bathroom:
     id:     4
     name:   'Ванная'
-  
+
   hall:
     id:     5
     name:   'Прихожая'
-  
-  childroom:
+
+  kitchen:
     id:     6
-    name:   'Детская'
+    name:   'Кухня'
+  
+  
+  

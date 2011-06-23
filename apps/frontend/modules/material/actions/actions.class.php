@@ -28,8 +28,6 @@ class materialActions extends myActions
 
   public function executeType(sfWebRequest $request)
   {
-    
-    
     $this->material_type = $this->getRoute()->getObject();
     $type_id = $this->material_type['id'];
     $material_count = sfConfig::get('app_material_on_type_page', 10);

@@ -19,6 +19,7 @@ class PortfolioFormFilter extends BasePortfolioFormFilter
                                          'furniture_list' => 'По использованной мебели'));
     
     $this->widgetSchema['description']->setOption('empty_label', 'пусто');
+    $this->widgetSchema['price']->setOption('empty_label', 'пустая');
     $this->widgetSchema['date']->setOption('with_empty', false);
     
     $date_template = 'В период

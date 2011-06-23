@@ -14,12 +14,16 @@
 				</div>
 		    <div class="portfolio_inf">
   				<div class="portfolio_name">
-  				  <?php echo link_to($portfolio['name'], 'portfolio_show', array('id' => $portfolio['id'])) ?><br />
+  				  <?php echo link_to($portfolio['name'], 
+  				  									 'portfolio_show', 
+  				                     array('id' => $portfolio['id'])) ?><br />
   				</div>
   				<div class="portfolio_description">
   					<?php echo $portfolio['description'] ?>
   				</div>
-		      <?php include_component('preorder', 'unitTransfer', array('id' => $portfolio['id'], 'unit_type' => 'portfolio')) ?>
+		      <?php include_component('preorder', 
+		      												'unitTransfer', 
+		                              array('id' => $portfolio['id'], 'unit_type' => 'portfolio')) ?>
 		    </div>
 			</div>
   	<?php endforeach; ?>
@@ -27,4 +31,5 @@
   	Пусто
   <?php endif; ?>
 </div>
+
 

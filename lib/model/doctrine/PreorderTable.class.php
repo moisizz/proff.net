@@ -16,4 +16,15 @@ class PreorderTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Preorder');
     }
+    
+    public function getFullPreorder(Doctrine_Query $q)
+    {
+        $rootAlias = $q->getRootAlias();
+        
+        $q->leftJoin($rootAlias.'.Furniture fr')
+          ->leftJoin($rootAlias.'.Material  mt')
+          ->leftJoin($rootAlias.'.Portfolio pr');
+
+        return $q->execute();
+    }
 }

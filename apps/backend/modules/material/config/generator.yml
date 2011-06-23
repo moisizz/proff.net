@@ -16,13 +16,14 @@ generator:
       fields:
         Type:        { label: 'Вид' }
         name:        { label: 'Название' }
+        price:       { label: 'Цена'}
         description: { label: 'Описание' }
         image:       { label: 'Картинка' }
       list:
         title:   'Материалы'
-        display: [Type, image, name, description]
+        display: [Type, image, name, price, description]
       filter:
-        display: [type_id, name, description, furniture_list]
+        display: [type_id, name, price, description, furniture_list]
       form:    ~
       edit:
         title: 'Редактирование материала'

@@ -73,6 +73,10 @@ Furniture:
     description:
       type:    string(2047)
       notnull: false
+    price:
+      type:    float
+      notnull: false
+      default: null
     image:
       type:    string(511)
       notnull: false
@@ -140,12 +144,19 @@ Material:
     type_id:
       type:    integer(4)
       notnull: true
+    quantity_id:
+      type:    integer(4)
+      notnull: true
     name:
       type:    string(511)  
       notnull: true
     description:
       type:    string(2047)
       notnull: false
+    price:
+      type:    float
+      notnull: false
+      default: null
     image:
       type:    string(511)
       notnull: false
@@ -161,6 +172,10 @@ Material:
       refClass: FurnitureMaterial
       local:    material_id
       foreign:  furniture_id
+    QuantityUnit:
+      class:       QuantityUnit
+      local:       quantity_id
+      foreign:     id
 
 FurniturePortfolio:
   columns:
@@ -197,6 +212,10 @@ Portfolio:
     description:
       type: string(2047)
       notnull: false
+    price:
+      type:    float
+      notnull: false
+      default: null
     image:
       type: string(511)
       notnull: false
@@ -309,3 +328,13 @@ Preorder:
       refClass: PortfolioPreorder
       local:    preorder_id
       foreign:  portfolio_id
+      
+QuantityUnit:
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    name:   
+      type:    string(63)
+      notnull: true

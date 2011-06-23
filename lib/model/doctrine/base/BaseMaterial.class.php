@@ -7,32 +7,41 @@
  * 
  * @property integer $id
  * @property integer $type_id
+ * @property integer $quantity_id
  * @property string $name
  * @property string $description
+ * @property float $price
  * @property string $image
  * @property MaterialType $Type
  * @property Doctrine_Collection $Furniture
+ * @property QuantityUnit $QuantityUnit
  * @property Doctrine_Collection $FurnitureMaterial
  * @property Doctrine_Collection $MaterialPreorder
  * @property Doctrine_Collection $Preorder
  * 
  * @method integer             getId()                Returns the current record's "id" value
  * @method integer             getTypeId()            Returns the current record's "type_id" value
+ * @method integer             getQuantityId()        Returns the current record's "quantity_id" value
  * @method string              getName()              Returns the current record's "name" value
  * @method string              getDescription()       Returns the current record's "description" value
+ * @method float               getPrice()             Returns the current record's "price" value
  * @method string              getImage()             Returns the current record's "image" value
  * @method MaterialType        getType()              Returns the current record's "Type" value
  * @method Doctrine_Collection getFurniture()         Returns the current record's "Furniture" collection
+ * @method QuantityUnit        getQuantityUnit()      Returns the current record's "QuantityUnit" value
  * @method Doctrine_Collection getFurnitureMaterial() Returns the current record's "FurnitureMaterial" collection
  * @method Doctrine_Collection getMaterialPreorder()  Returns the current record's "MaterialPreorder" collection
  * @method Doctrine_Collection getPreorder()          Returns the current record's "Preorder" collection
  * @method Material            setId()                Sets the current record's "id" value
  * @method Material            setTypeId()            Sets the current record's "type_id" value
+ * @method Material            setQuantityId()        Sets the current record's "quantity_id" value
  * @method Material            setName()              Sets the current record's "name" value
  * @method Material            setDescription()       Sets the current record's "description" value
+ * @method Material            setPrice()             Sets the current record's "price" value
  * @method Material            setImage()             Sets the current record's "image" value
  * @method Material            setType()              Sets the current record's "Type" value
  * @method Material            setFurniture()         Sets the current record's "Furniture" collection
+ * @method Material            setQuantityUnit()      Sets the current record's "QuantityUnit" value
  * @method Material            setFurnitureMaterial() Sets the current record's "FurnitureMaterial" collection
  * @method Material            setMaterialPreorder()  Sets the current record's "MaterialPreorder" collection
  * @method Material            setPreorder()          Sets the current record's "Preorder" collection
@@ -58,6 +67,11 @@ abstract class BaseMaterial extends sfDoctrineRecord
              'notnull' => true,
              'length' => 4,
              ));
+        $this->hasColumn('quantity_id', 'integer', 4, array(
+             'type' => 'integer',
+             'notnull' => true,
+             'length' => 4,
+             ));
         $this->hasColumn('name', 'string', 511, array(
              'type' => 'string',
              'notnull' => true,
@@ -67,6 +81,10 @@ abstract class BaseMaterial extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => false,
              'length' => 2047,
+             ));
+        $this->hasColumn('price', 'float', null, array(
+             'type' => 'float',
+             'notnull' => false,
              ));
         $this->hasColumn('image', 'string', 511, array(
              'type' => 'string',
@@ -88,6 +106,10 @@ abstract class BaseMaterial extends sfDoctrineRecord
              'refClass' => 'FurnitureMaterial',
              'local' => 'material_id',
              'foreign' => 'furniture_id'));
+
+        $this->hasOne('QuantityUnit', array(
+             'local' => 'quantity_id',
+             'foreign' => 'id'));
 
         $this->hasMany('FurnitureMaterial', array(
              'local' => 'id',

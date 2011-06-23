@@ -17,8 +17,10 @@ abstract class BaseMaterialForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
       'type_id'        => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Type'), 'add_empty' => false)),
+      'quantity_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('QuantityUnit'), 'add_empty' => false)),
       'name'           => new sfWidgetFormTextarea(),
       'description'    => new sfWidgetFormTextarea(),
+      'price'          => new sfWidgetFormInputText(),
       'image'          => new sfWidgetFormTextarea(),
       'furniture_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Furniture')),
       'preorder_list'  => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Preorder')),
@@ -27,8 +29,10 @@ abstract class BaseMaterialForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'             => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'type_id'        => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Type'))),
+      'quantity_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('QuantityUnit'))),
       'name'           => new sfValidatorString(array('max_length' => 511)),
       'description'    => new sfValidatorString(array('max_length' => 2047, 'required' => false)),
+      'price'          => new sfValidatorNumber(array('required' => false)),
       'image'          => new sfValidatorString(array('max_length' => 511, 'required' => false)),
       'furniture_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Furniture', 'required' => false)),
       'preorder_list'  => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Preorder', 'required' => false)),

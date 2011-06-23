@@ -13,18 +13,22 @@ generator:
 
     config:
       actions:
-        _new:    { label: "Добавить"}
+        show:   { label:  'Посмотреть' }
         _edit:   { label: 'Редактировать' }
         _delete: { label: 'Удалить' }
       fields:
-        first_name:    { label: "Имя"}
-        middle_name:      { label: "Фамилия"}
+        id:           { label: 'Номер'}
+        first_name:   { label: "Имя"}
+        middle_name:  { label: "Фамилия"}
         last_name:    { label: "Отчество"}
         description:  { label: 'Дополнительные пожелания' }
       list:
-        title:   'Отправленные предзаказы'
-        display: [first_name, middle_name, last_name, description, created_at]
-        
+        title:          'Отправленные черновики'
+        display:        [id, first_name, middle_name, last_name ]
+        object_actions:
+          show:   ~
+          _edit:   ~
+          _delete: ~
       filter:  ~
       form:    ~
       edit:    ~

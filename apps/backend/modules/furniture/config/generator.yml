@@ -14,16 +14,16 @@ generator:
     config:
       actions: ~
       fields:
-        name:        
-          label:    'Наименование'
+        name:        { label: 'Наименование'}
+        price:       { label: 'Цена'}
         description: { label: 'Описание' }
         image:       { label: 'Картинка' }
         Type:        { label: 'Вид'}
       list:
         title:   'Мебель'
-        display: [Type, image, =name, description]        
+        display: [Type, image, =name, price, description]        
       filter:
-        display: [type_id, name, description, material_list, portfolio_list]
+        display: [type_id, name, price, description, material_list, portfolio_list]
       form:    ~
       edit:
         title:   'Изменить мебель'

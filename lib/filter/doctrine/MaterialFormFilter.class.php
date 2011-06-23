@@ -18,6 +18,7 @@ class MaterialFormFilter extends BaseMaterialFormFilter
                                          'furniture_list'  => 'По подходящей мебели'));
     
     $this->widgetSchema['description']->setOption('empty_label', 'пустое');
+    $this->widgetSchema['price']->setOption('empty_label', 'пустая');
     
     $double_list      = 'sfWidgetFormSelectDoubleList';
     $renderer_options = array('label_unassociated' => 'Доступные',

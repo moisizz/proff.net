@@ -1,6 +1,6 @@
 <ul id="navmenu-v"> 
     <li id="menu_room_index">
-    	<?php echo link_to('Комнаты','homepage') ?>
+    	<?php echo link_to('Комнаты <small>►</small>','homepage') ?>
     	<ul>
     	  <?php foreach($room_list as $room): ?>
         	<li>
@@ -11,7 +11,7 @@
     </li> 
     
     <li id="menu_furniture_types">
-    	<?php echo link_to('Мебель','furniture_types') ?>
+    	<?php echo link_to('Мебель <small>►</small>','furniture_types') ?>
     	<ul>
     	  <?php foreach($furniture_type_list as $furn_type): ?>
         	<li>
@@ -22,7 +22,7 @@
     </li> 
     
     <li id="menu_material_types">
-    	<?php echo link_to('Материалы','material_types') ?>
+    	<?php echo link_to('Материалы <small>►</small>','material_types') ?>
     	<ul>
     	  <?php foreach($material_type_list as $material_type): ?>
         	<li>

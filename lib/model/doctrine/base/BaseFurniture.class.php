@@ -9,6 +9,7 @@
  * @property integer $type_id
  * @property string $name
  * @property string $description
+ * @property float $price
  * @property string $image
  * @property FurnitureType $Type
  * @property Doctrine_Collection $Material
@@ -22,6 +23,7 @@
  * @method integer             getTypeId()             Returns the current record's "type_id" value
  * @method string              getName()               Returns the current record's "name" value
  * @method string              getDescription()        Returns the current record's "description" value
+ * @method float               getPrice()              Returns the current record's "price" value
  * @method string              getImage()              Returns the current record's "image" value
  * @method FurnitureType       getType()               Returns the current record's "Type" value
  * @method Doctrine_Collection getMaterial()           Returns the current record's "Material" collection
@@ -34,6 +36,7 @@
  * @method Furniture           setTypeId()             Sets the current record's "type_id" value
  * @method Furniture           setName()               Sets the current record's "name" value
  * @method Furniture           setDescription()        Sets the current record's "description" value
+ * @method Furniture           setPrice()              Sets the current record's "price" value
  * @method Furniture           setImage()              Sets the current record's "image" value
  * @method Furniture           setType()               Sets the current record's "Type" value
  * @method Furniture           setMaterial()           Sets the current record's "Material" collection
@@ -73,6 +76,10 @@ abstract class BaseFurniture extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => false,
              'length' => 2047,
+             ));
+        $this->hasColumn('price', 'float', null, array(
+             'type' => 'float',
+             'notnull' => false,
              ));
         $this->hasColumn('image', 'string', 511, array(
              'type' => 'string',
